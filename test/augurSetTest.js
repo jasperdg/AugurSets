@@ -1,6 +1,6 @@
 const MarketOutcomeToken = artifacts.require("MarketOutcomeToken.sol");
-const OutcomeTokenIndex = artifacts.require("OutcomeTokenIndex.sol");
-const CompleteSetOfOutcomeTokenIndexes = artifacts.require("CompleteSetOfOutcomeTokenIndexes.sol");
+const OutcomeIndexToken = artifacts.require("OutcomeIndexToken.sol");
+const CompleteSetOfOutcomeIndexToken = artifacts.require("CompleteSetOfOutcomeIndexToken.sol");
 const utils = require("web3-utils");
 const { fromWei, toWei, toBN } = utils;
 const Web3 = require('web3');
@@ -32,10 +32,10 @@ contract('multiMarketIndexToken', (accounts) => {
 		const longIndexAddresses = longIndex.map(i => i.address);
 		const shortIndexAddresses = shortIndex.map(i => i.address);
 
-		shortOTI = await OutcomeTokenIndex.new(shortIndexAddresses, weights);
-		longOTI = await OutcomeTokenIndex.new(longIndexAddresses, weights);
+		shortOTI = await OutcomeIndexToken.new(shortIndexAddresses, weights);
+		longOTI = await OutcomeIndexToken.new(longIndexAddresses, weights);
 
-		completeIndexSet = await CompleteSetOfOutcomeTokenIndexes.new(shortOTI.address, longOTI.address);
+		completeIndexSet = await CompleteSetOfOutcomeIndexToken.new(shortOTI.address, longOTI.address);
 	});
 
 	it('Should be able to purchase a complete set of OutcomeIndexTokens', async () => {

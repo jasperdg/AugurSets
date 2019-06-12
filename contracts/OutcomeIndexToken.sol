@@ -3,22 +3,27 @@ pragma solidity >= 0.4.22;
 import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
 import "./MarketOutcomeToken.sol";
 import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
+import "./Market.sol";
 
-
-contract OutcomeTokenIndex is MintableERC20Token {
+contract OutcomeIndexToken is MintableERC20Token {
 	using SafeMathLib for uint256;
 
 	string public name = "MultiMarketIndexToken";
 	string public symbol = "MMIT";
+	address minter;
 	uint256 public decimals = 18;
-	bool outcomeTokenIndexFinalized = false;
+	bool OutcomeIndexTokenFinalized = false;
+	uint256 outcome;
 
 	address[] public index;
+	Market[] public markets;
 	mapping(address => uint256) indexToWeight;
 
 	constructor(
+		Market[] _markets,
 		address[] _index,
-		uint256[] _weights
+		uint256[] _weights, 
+		uint256 _outcome
 	) 
 	public 
 	{
@@ -26,29 +31,22 @@ contract OutcomeTokenIndex is MintableERC20Token {
 		for (uint i = 0; i < _index.length; i++) {
 			indexToWeight[_index[i]] = _weights[i];
 		}
+		minter = address(msg.sender);
 		index = _index;
+		markets = _markets;
+		uint256 outcome = _outcome;
 		// Set unlimited allowance for the 0x contract
 	}
 
-	/// @dev purchases the index positions
-	/// @param _to the user the index token should be minted for
-	function purchaseIndex(
+	function mint(
 		address _to, 
-		uint256 _amountOfShares
-	) 
-	public 
-	payable
-	{
-		require(msg.value > 0);
-		for (uint i = 0; i < index.length; i++) {
-			uint256 weightedAmount = msg.value.mul(indexToWeight[index[i]]).div(100);
-			// In a testnet version this would happen in ComleteSetOfOutcomeTokenIndexes by 
-			// purchasing complete sets of shares and distributing these back to the OutcomeTokenIndexes.
-			MarketOutcomeToken(index[i]).purchase.value(weightedAmount)();
-		}
-		
-		_mint(_to, msg.value);
+		uint256 _amount
+	)
+	public {
+		require(msg.sender == minter);
+		_mint(_to, _amount);
 	}
+
 
 	function getIndexBalance(
 		MarketOutcomeToken _token
@@ -61,10 +59,10 @@ contract OutcomeTokenIndex is MintableERC20Token {
 	}
 
 
-	function withdraw() 
+	function claim() 
 	public 
 	{
-		require(outcomeTokenIndexFinalized);
+		require(OutcomeIndexTokenFinalized);
 		msg.sender.transfer(balances[msg.sender].div(2));
 		_burn(msg.sender, balances[msg.sender]);
 	}
@@ -75,7 +73,7 @@ contract OutcomeTokenIndex is MintableERC20Token {
 	returns (bool resolved) 
 	{
 		for (uint i = 0; i < index.length; i++) {
-			if (MarketOutcomeToken(index[i]).isFinalized() == false) {
+			if (markets[i].isFinalized() == false) {
 				return false;
 			}
 		}
@@ -89,13 +87,13 @@ contract OutcomeTokenIndex is MintableERC20Token {
 	public 
 	{
 		require(indexMarketsFinalized());
-		require(!outcomeTokenIndexFinalized);
+		require(!OutcomeIndexTokenFinalized);
 
-		for (uint x = 0; x < index.length; x++) {
-			MarketOutcomeToken(index[x]).withdraw();
+		for (uint x = 0; x < markets.length; x++) {
+			markets[x].claim(outcome);
 		}
 
-		outcomeTokenIndexFinalized = true;
+		OutcomeIndexTokenFinalized = true;
 	}
 
 }

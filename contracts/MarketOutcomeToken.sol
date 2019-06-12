@@ -2,7 +2,7 @@ pragma solidity >= 0.4.22;
 
 import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
 import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
-import "./OutcomeTokenIndex.sol";
+import "./OutcomeIndexToken.sol";
 import "./Market.sol";
 /* 
 	For this implementation of MultiMarketIndexToken we're assuming that all markets are conmnected
@@ -12,9 +12,7 @@ import "./Market.sol";
 contract MarketOutcomeToken is MintableERC20Token {
 	using SafeMathLib for uint256;
 	
-	bool public isFinalized = true;
 	Market public market; // This only for the simulations
-	uint256 public numTicks = 10000;
 	
 	constructor(Market _market) 
 	public
@@ -22,21 +20,23 @@ contract MarketOutcomeToken is MintableERC20Token {
 		market = _market;
 	}
 
-	function purchase() 
+	function mint(
+		address _to,
+		uint256 _amount
+	) 
 	public 
-	payable
 	{
-		require (msg.value > numTicks);
-		_mint(msg.sender, msg.value.div(numTicks.div(2)));
+		require(msg.sender == address(market));
+		_mint(_to, _amount);
 	}
 
-	function withdraw() 
-	public
+	function burn(
+		address _from,
+		uint256 _amount
+	) 
+	public 
 	{
-		require(isFinalized);
-		require (isFinalized && balances[msg.sender] > 0);
-		OutcomeTokenIndex(msg.sender).deposit.value(balances[msg.sender].div(2).mul(numTicks))();
-		_burn(msg.sender, balances[msg.sender]);
+		require(msg.sender == address(market));
+		_burn(_from, _amount);
 	}
-
 }

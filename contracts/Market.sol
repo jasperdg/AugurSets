@@ -1,45 +1,45 @@
 pragma solidity >= 0.4.22;
 
+import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
 import "./MarketOutcomeToken.sol";
+import "./OutcomeIndexToken.sol";
 
 contract Market {
-	MarketOutcomeToken[] public outcomeTokens;
-	uint16 winner;
+	using SafeMathLib for uint256;
 
-	constructor(uint16 _winningOutcome) {
-		for (uint16 i = 0; i < 1; i++) {
+	MarketOutcomeToken[] public outcomeTokens;
+	uint256 winner;
+	bool public isFinalized = true;
+	uint256 public numTicks = 10000;
+
+	constructor(uint256 _winningOutcome) {
+		for (uint256 i = 0; i < 1; i++) {
 			outcomeTokens.push(new MarketOutcomeToken(this));
 		}
 		winner = _winningOutcome;
 	}
 
-	function deposit() 
+	function buyCompleteSet(OutcomeIndexToken[] _to) 
 	public 
 	payable
 	{
-		require(isOutcomeToken(msg.sender));
-	}
-
-	function withdrawTo(
-		uint256 _amount, 
-		address _to
-	)
-	internal
-	{
-		require(isWinningToken());
-		_to.transfer(_amount);
-	}
-
-	function isOutcomeToken(
-		address _sender
-	)
-	view
-	returns(bool)
-	{
+		require(msg.value > 0 && msg.value % 2 == 0);
 		for (uint i = 0; i < outcomeTokens.length; i++) {
-			if (address(outcomeTokens[i]) == _sender) return true;
+			outcomeTokens[i].mint(address(_to[i]), msg.value.div(2 * numTicks));
 		}
-		return false;
+	}
+
+	function claim(
+		uint256 _outcome
+	)
+	public
+	{
+		require(isFinalized);
+		require(_outcome == winner);
+		uint256 balance = outcomeTokens[_outcome].balanceOf(msg.sender);
+		require(balance > 0);
+		OutcomeIndexToken(msg.sender).deposit.value(balance.mul(2 * numTicks))();
+		outcomeTokens[_outcome].burn(msg.sender, balance);
 	}
 
 	function isWinningToken(
