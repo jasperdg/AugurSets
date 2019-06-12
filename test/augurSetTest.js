@@ -10,7 +10,6 @@ const web3 = new Web3("http://localhost:8545")
 
 
 // TODO: simulate market resolving into a winner and winner getting the profit
-// TODO: reformat code
 // TODO: create 2 scenario's: 1. WTA, 2. WTM
 
 contract('multiMarketIndexToken', (accounts) => {
@@ -24,8 +23,8 @@ contract('multiMarketIndexToken', (accounts) => {
 
 	it('Create all contracts that are used for the test', async () => {
 
-		const longIndexPromises = weights.map(() => MarketOutcomeToken.new());
-		const shortIndexPromises = weights.map(() => MarketOutcomeToken.new());
+		const longIndexPromises = weights.map(() => MarketOutcomeToken.new()); // Augur OutcomeToken simulations
+		const shortIndexPromises = weights.map(() => MarketOutcomeToken.new()); // Augur OutcomeToken simulations
 		
 		longIndex = await Promise.all(longIndexPromises);
 		shortIndex = await Promise.all(shortIndexPromises);
