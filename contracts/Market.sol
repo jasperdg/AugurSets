@@ -8,15 +8,16 @@ contract Market {
 	using SafeMathLib for uint256;
 
 	MarketOutcomeToken[] public outcomeTokens;
-	uint256 winner;
+	uint256 public outcome;
 	bool public isFinalized = true;
 	uint256 public numTicks = 10000;
 
 	constructor(uint256 _winningOutcome) {
-		for (uint256 i = 0; i < 1; i++) {
-			outcomeTokens.push(new MarketOutcomeToken(this));
+		for (uint256 i = 0; i < 2; i++) {
+			MarketOutcomeToken marketOutcomeToken = new MarketOutcomeToken(this);
+			outcomeTokens.push(marketOutcomeToken);
 		}
-		winner = _winningOutcome;
+		outcome = _winningOutcome;
 	}
 
 	function buyCompleteSet(OutcomeIndexToken[] _to) 
@@ -25,7 +26,7 @@ contract Market {
 	{
 		require(msg.value > 0 && msg.value % 2 == 0);
 		for (uint i = 0; i < outcomeTokens.length; i++) {
-			outcomeTokens[i].mint(address(_to[i]), msg.value.div(2 * numTicks));
+			outcomeTokens[i].mint(address(_to[i]), msg.value.div(numTicks));
 		}
 	}
 
@@ -35,23 +36,10 @@ contract Market {
 	public
 	{
 		require(isFinalized);
-		require(_outcome == winner);
+		require(_outcome == outcome);
 		uint256 balance = outcomeTokens[_outcome].balanceOf(msg.sender);
 		require(balance > 0);
-		OutcomeIndexToken(msg.sender).deposit.value(balance.mul(2 * numTicks))();
-		outcomeTokens[_outcome].burn(msg.sender, balance);
-	}
-
-	function isWinningToken(
-		address _sender
-	)
-	view
-	returns(bool)
-	{
-		if (address(outcomeTokens[winner]) == _sender) {
-			return true;
-		} else {
-			return false;
-		}
+		outcomeTokens[_outcome].burn(address(msg.sender), balance); 
+		OutcomeIndexToken(msg.sender).deposit.value(balance.mul(numTicks))();
 	}
 }

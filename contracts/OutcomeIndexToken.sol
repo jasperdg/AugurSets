@@ -10,10 +10,11 @@ contract OutcomeIndexToken is MintableERC20Token {
 
 	string public name = "MultiMarketIndexToken";
 	string public symbol = "MMIT";
-	address minter;
 	uint256 public decimals = 18;
-	bool OutcomeIndexTokenFinalized = false;
-	uint256 outcome;
+	
+	address minter;
+	bool outcomeIndexTokenFinalized = false;
+	uint256 public outcome;
 
 	address[] public index;
 	Market[] public markets;
@@ -34,7 +35,7 @@ contract OutcomeIndexToken is MintableERC20Token {
 		minter = address(msg.sender);
 		index = _index;
 		markets = _markets;
-		uint256 outcome = _outcome;
+		outcome = _outcome;
 		// Set unlimited allowance for the 0x contract
 	}
 
@@ -62,7 +63,7 @@ contract OutcomeIndexToken is MintableERC20Token {
 	function claim() 
 	public 
 	{
-		require(OutcomeIndexTokenFinalized);
+		require(outcomeIndexTokenFinalized);
 		msg.sender.transfer(balances[msg.sender].div(2));
 		_burn(msg.sender, balances[msg.sender]);
 	}
@@ -87,13 +88,13 @@ contract OutcomeIndexToken is MintableERC20Token {
 	public 
 	{
 		require(indexMarketsFinalized());
-		require(!OutcomeIndexTokenFinalized);
+		require(!outcomeIndexTokenFinalized);
 
 		for (uint x = 0; x < markets.length; x++) {
-			markets[x].claim(outcome);
+			if (markets[x].outcome() == outcome) markets[x].claim(1);
 		}
 
-		OutcomeIndexTokenFinalized = true;
+		outcomeIndexTokenFinalized = true;
 	}
 
 }

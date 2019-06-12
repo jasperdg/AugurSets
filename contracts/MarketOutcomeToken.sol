@@ -31,12 +31,12 @@ contract MarketOutcomeToken is MintableERC20Token {
 	}
 
 	function burn(
-		address _from,
+		address _to,
 		uint256 _amount
 	) 
 	public 
 	{
 		require(msg.sender == address(market));
-		_burn(_from, _amount);
+		_burn(_to, _amount);
 	}
 }

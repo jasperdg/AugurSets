@@ -8,7 +8,7 @@ import "./Market.sol";
 contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 	using SafeMathLib for uint256;
 
-	OutcomeIndexToken[] outcomeIndexTokens;
+	OutcomeIndexToken[] public outcomeIndexTokens;
 	Market[] markets;
 	mapping(address => uint256) marketsToWeight;
 
