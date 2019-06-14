@@ -19,13 +19,14 @@ contract('multiMarketIndexToken', (accounts) => {
 	let longIndexAddresses;
 	let shortIndexAddresses;
 	let completeIndexSet; 
+	let marketIndex;
 	const weights = [20, 40, 40];
 	const results = [1, 1, 1] // Long wins;
 
 	it('Create all contracts that are used for the test', async () => {
 
 		const marketPromises = weights.map((d, i) => Market.new(results[i].toString()));
-		const marketIndex = await Promise.all(marketPromises);
+		marketIndex = await Promise.all(marketPromises);
 		const marketIndexAddresses = marketIndex.map(market => market.address);
 
 		
@@ -91,9 +92,10 @@ contract('multiMarketIndexToken', (accounts) => {
 		assert.equal(longMarketsFinalized, true);
 	});
 
-	it('Should be able to withdraw the IndexToken their eth in exchange for tokens in each outcome token.', async () => {
-		const finalizeShortIndexToken = await shortOTI.methods.finalize().send({ from: accountOne });
-		const finalizeLongIndexToken = await longOTI.methods.finalize().send({ from: accountOne });
+	it('Should be able to withdraw the IndexToken their eth in exchange for tokens in each outcome token.', async () => {	
+
+		const finalizeShortIndexToken = await shortOTI.methods.finalize().send({ from: accountOne, gas: "6000000", gasPrice: "1" });
+		const finalizeLongIndexToken = await longOTI.methods.finalize().send({ from: accountOne, gas: "6000000", gasPrice: "1" });
 
 		assert.equal(finalizeLongIndexToken.status, true);
 		assert.equal(finalizeShortIndexToken.status, true);
@@ -105,13 +107,12 @@ contract('multiMarketIndexToken', (accounts) => {
 		assert.equal(longOTIEtherBalance.toString(), oneEthInWei.toString());
 	});
 
-	// it('If everything is finalized the user should be able to withdraw his winnings from the index token', async () => {
-	// 	const beforeBalance = await web3.eth.getBalance(accountOne);
-	// 	await shortOTI.withdraw({ from: accountOne });
-	// 	await longOTI.withdraw({ from: accountOne });
-	// 	const afterBalance = await web3.eth.getBalance(accountOne);
-	// 	console.log("balance before withdrawl: ", beforeBalance);
-	// 	console.log("balance after withdrawl: ", afterBalance)
-	// })
+	it('If everything is finalized the user should be able to withdraw his winnings from the index token', async () => {
+		const beforeBalance = await web3.eth.getBalance(accountOne);
+		console.log("balance before claim: ", beforeBalance);
+		await longOTI.methods.claim().send({ from: accountOne });
+		const afterBalance = await web3.eth.getBalance(accountOne);
+		console.log("balance after withdrawl: ", afterBalance)
+	})
 
 })
