@@ -2,6 +2,7 @@ pragma solidity >= 0.4.22;
 pragma experimental ABIEncoderV2;
 import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
 import "./OutcomeIndexToken.sol";
+import "./MarketOutcomeToken.sol";
 import "./Market.sol";
 
 // Make mintable unlimited allowance token.
@@ -37,10 +38,14 @@ contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 		require(msg.value > 0);
 		for (uint256 i = 0; i < markets.length; i++) {
 			uint256 weightedAmount = msg.value.mul(marketsToWeight[markets[i]]).div(100);
-			markets[i].buyCompleteSet.value(weightedAmount)(outcomeIndexTokens);
+			markets[i].buyCompleteSet.value(weightedAmount)();
+
+			for (uint256 x = 0; x < outcomeIndexTokens.length; x++){
+				MarketOutcomeToken(markets[i].outcomeTokens(x)).transfer(address(outcomeIndexTokens[x]), weightedAmount.div(markets[x].numTicks()));
+			}
 		}
-		for (uint256 x = 0; x < outcomeIndexTokens.length; x++){
-			outcomeIndexTokens[x].mint(msg.sender, msg.value);
+		for (uint256 y = 0; y < outcomeIndexTokens.length; y++){
+			outcomeIndexTokens[y].mint(msg.sender, msg.value);
 		}
 	}
 }

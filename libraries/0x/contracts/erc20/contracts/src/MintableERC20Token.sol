@@ -42,11 +42,11 @@ contract MintableERC20Token is
         );
     }
 
-    /// @dev Mints new tokens
+    /// @dev Burns tokens
     /// @param _owner Owner of tokens that will be burned
     /// @param _value Amount of tokens to burn
     function _burn(address _owner, uint256 _value)
-        internal
+    internal
     {
         balances[_owner] = safeSub(balances[_owner], _value);
         _totalSupply = safeSub(_totalSupply, _value);

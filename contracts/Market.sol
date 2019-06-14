@@ -12,7 +12,10 @@ contract Market {
 	bool public isFinalized = true;
 	uint256 public numTicks = 10000;
 
-	constructor(uint256 _winningOutcome) {
+	constructor(
+		uint256 _winningOutcome
+	) 
+	{
 		for (uint256 i = 0; i < 2; i++) {
 			MarketOutcomeToken marketOutcomeToken = new MarketOutcomeToken(this);
 			outcomeTokens.push(marketOutcomeToken);
@@ -20,13 +23,17 @@ contract Market {
 		outcome = _winningOutcome;
 	}
 
-	function buyCompleteSet(OutcomeIndexToken[] _to) 
+	function getOutcome() public view returns(uint256) {
+		return outcome;
+	}
+
+	function buyCompleteSet() 
 	public 
 	payable
 	{
 		require(msg.value > 0 && msg.value % 2 == 0);
 		for (uint i = 0; i < outcomeTokens.length; i++) {
-			outcomeTokens[i].mint(address(_to[i]), msg.value.div(numTicks));
+			outcomeTokens[i].mint(msg.sender, msg.value.div(numTicks));
 		}
 	}
 
@@ -37,9 +44,9 @@ contract Market {
 	{
 		require(isFinalized);
 		require(_outcome == outcome);
-		uint256 balance = outcomeTokens[_outcome].balanceOf(msg.sender);
+		uint256 balance = outcomeTokens[outcome].balanceOf(address(msg.sender));
 		require(balance > 0);
-		outcomeTokens[_outcome].burn(address(msg.sender), balance); 
-		OutcomeIndexToken(msg.sender).deposit.value(balance.mul(numTicks))();
+		OutcomeIndexToken(address(msg.sender)).deposit.value(balance.mul(numTicks))();
+		outcomeTokens[_outcome].burn(msg.sender, balance); 
 	}
 }
