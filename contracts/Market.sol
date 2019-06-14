@@ -23,10 +23,6 @@ contract Market {
 		outcome = _winningOutcome;
 	}
 
-	function getOutcome() public view returns(uint256) {
-		return outcome;
-	}
-
 	function buyCompleteSet() 
 	public 
 	payable

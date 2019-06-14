@@ -43,10 +43,6 @@ contract OutcomeIndexToken is MintableERC20Token {
 		// Set unlimited allowance for the 0x contract
 	}
 
-	function getOutcome() public view returns(uint256) {
-		return outcome;
-	}
-
 	function mint(
 		address _to, 
 		uint256 _amount
@@ -102,7 +98,7 @@ contract OutcomeIndexToken is MintableERC20Token {
 		require(!outcomeIndexTokenFinalized);
 
 		for (uint x = 0; x < markets.length; x++) {
-			if (outcome == markets[x].getOutcome()) {
+			if (outcome == markets[x].outcome()) {
 				winningsByWeight = winningsByWeight.add(weights[x]);
 				markets[x].claim(outcome);	
 			}

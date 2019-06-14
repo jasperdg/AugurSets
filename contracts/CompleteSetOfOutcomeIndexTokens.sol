@@ -15,18 +15,21 @@ contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 
 	constructor (
 		Market[] _markets,
-		address[][] _index,
+		address[][] _indexes,
 		uint256[] _weights
 	)  
 	public 
 	{
 		require(_markets.length == _weights.length);
-		for (uint256 i = 0; i < _index.length; i++) {
+
+		for (uint256 i = 0; i < _indexes.length; i++) {
 			outcomeIndexTokens.push(new OutcomeIndexToken(_markets, _index[i], _weights, i));
 		}
+
 		for (uint256 x = 0; x < _markets.length; x++) {
 			marketsToWeight[_markets[x]] = _weights[x];
 		}
+
 		markets = _markets;
 	}
 
