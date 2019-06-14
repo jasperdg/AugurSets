@@ -9,9 +9,6 @@ const oneEthInWei = toBN(toWei("1", "ether"));
 const NUM_TICKS = 10000;
 const web3 = new Web3("http://localhost:8545")
 
-// TODO: simulate market resolving into a winner and winner getting the profit
-// TODO: create 2 scenario's: 1. WTA, 2. WTM
-
 contract('multiMarketIndexToken', (accounts) => {
 	const accountOne = accounts[0];
 	let shortOIT;

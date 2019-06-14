@@ -21,7 +21,6 @@ contract OutcomeIndexToken is MintableERC20Token {
 	address[] public index;
 	uint256[] weights;
 	Market[] public markets;
-	mapping(address => uint256) indexToWeight;
 
 	constructor(
 		Market[] _markets,
@@ -32,9 +31,7 @@ contract OutcomeIndexToken is MintableERC20Token {
 	public 
 	{
 		require(_weights.length == _index.length);
-		for (uint i = 0; i < _index.length; i++) {
-			indexToWeight[_index[i]] = _weights[i];
-		}
+
 		minter = address(msg.sender);
 		index = _index;
 		markets = _markets;
