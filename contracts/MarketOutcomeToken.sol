@@ -4,10 +4,11 @@ import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
 import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
 import "./OutcomeIndexToken.sol";
 import "./Market.sol";
+
 /* 
-	For this implementation of MultiMarketIndexToken we're assuming that all markets are conmnected
-	and that the user will choose to take one particulair position in these markets. 
+	NOTICE: This is a dummy contract that simulates some of the behaviour of Augur outcome token contracts.
 */
+
 
 contract MarketOutcomeToken is MintableERC20Token {
 	using SafeMathLib for uint256;

@@ -4,6 +4,10 @@ import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
 import "./MarketOutcomeToken.sol";
 import "./OutcomeIndexToken.sol";
 
+/* 
+	NOTICE: This is a dummy contract that simulates some of the behaviour of Augur market contracts.
+*/
+
 contract Market {
 	using SafeMathLib for uint256;
 

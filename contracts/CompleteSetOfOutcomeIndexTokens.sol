@@ -5,7 +5,11 @@ import "./OutcomeIndexToken.sol";
 import "./MarketOutcomeToken.sol";
 import "./Market.sol";
 
-// Make mintable unlimited allowance token.
+/* 
+	TODO: 
+	- Make more readible by adding in comments and temp variables
+*/
+
 contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 	using SafeMathLib for uint256;
 

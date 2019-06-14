@@ -5,6 +5,11 @@ import "./MarketOutcomeToken.sol";
 import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
 import "./Market.sol";
 
+/* 
+	TODO: 
+	- Make more readible by adding in comments and temp variables
+*/
+
 contract OutcomeIndexToken is MintableERC20Token {
 	using SafeMathLib for uint256;
 
@@ -16,7 +21,6 @@ contract OutcomeIndexToken is MintableERC20Token {
 	bool outcomeIndexTokenFinalized = false;
 	uint256 public outcome;
 	uint256 winningsByWeight = 0;
-	
 
 	address[] public index;
 	uint256[] weights;
