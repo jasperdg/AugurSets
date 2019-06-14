@@ -21,7 +21,8 @@ contract('multiMarketIndexToken', (accounts) => {
 	let completeIndexSet; 
 	let marketIndex;
 	const weights = [20, 40, 40];
-	const results = [1, 1, 1] // Long wins;
+	// const results = [1, 1, 1] // Long wins;
+	const results = [0, 1, 0] // Long wins;
 
 	it('Create all contracts that are used for the test', async () => {
 
@@ -82,7 +83,7 @@ contract('multiMarketIndexToken', (accounts) => {
 		assert.equal(accountOneShortBalance.toString(), oneEthInWei.toString());
 		console.log("Long balance:", accountOneLongBalance.toString());
 		assert.equal(accountOneLongBalance.toString(), oneEthInWei.toString());
-	})
+	});
 
 	it('Should be able to check if the indexes are finalized', async () => {
 		const shortMarketsFinalized = await shortOTI.methods.indexMarketsFinalized().call();
@@ -101,18 +102,26 @@ contract('multiMarketIndexToken', (accounts) => {
 		assert.equal(finalizeShortIndexToken.status, true);
 
 		const shortOTIEtherBalance = await web3.eth.getBalance(shortOTI.address);
-		assert.equal(shortOTIEtherBalance.toString(), "0");
+		// assert.equal(shortOTIEtherBalance.toString(), oneEthInWei.mul(toBN("14")).div("10"));
 
 		const longOTIEtherBalance = await web3.eth.getBalance(longOTI.address);
-		assert.equal(longOTIEtherBalance.toString(), oneEthInWei.toString());
+		// assert.equal(longOTIEtherBalance.toString(), oneEthInWei.toString());
 	});
 
-	it('If everything is finalized the user should be able to withdraw his winnings from the index token', async () => {
+	it('Long winnings should be equal to weight * winnings / 100', async () => {
 		const beforeBalance = await web3.eth.getBalance(accountOne);
 		console.log("balance before claim: ", beforeBalance);
 		await longOTI.methods.claim().send({ from: accountOne });
 		const afterBalance = await web3.eth.getBalance(accountOne);
 		console.log("balance after withdrawl: ", afterBalance)
-	})
+	});
 
-})
+	it('Short winnings should be equal to weight * winnings / 100', async () => {
+		const beforeBalance = await web3.eth.getBalance(accountOne);
+		console.log("balance before claim: ", beforeBalance);
+		await shortOTI.methods.claim().send({ from: accountOne });
+		const afterBalance = await web3.eth.getBalance(accountOne);
+		console.log("balance after withdrawl: ", afterBalance)
+	});
+
+});

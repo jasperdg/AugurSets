@@ -15,9 +15,11 @@ contract OutcomeIndexToken is MintableERC20Token {
 	address minter;
 	bool outcomeIndexTokenFinalized = false;
 	uint256 public outcome;
+	uint256 winningsByWeight = 0;
 	
 
 	address[] public index;
+	uint256[] weights;
 	Market[] public markets;
 	mapping(address => uint256) indexToWeight;
 
@@ -36,6 +38,7 @@ contract OutcomeIndexToken is MintableERC20Token {
 		minter = address(msg.sender);
 		index = _index;
 		markets = _markets;
+		weights = _weights;
 		outcome = _outcome;
 		// Set unlimited allowance for the 0x contract
 	}
@@ -69,8 +72,10 @@ contract OutcomeIndexToken is MintableERC20Token {
 	public 
 	{
 		require(outcomeIndexTokenFinalized);
-		require(address(this).balance > 0);
-		msg.sender.transfer(balances[msg.sender]);
+		if (winningsByWeight > 0) {
+			uint256 weightedEarnings = winningsByWeight.mul(balances[msg.sender]).div(100);
+			msg.sender.transfer(weightedEarnings);
+		}
 		_burn(msg.sender, balances[msg.sender]);
 	}
 
@@ -98,6 +103,7 @@ contract OutcomeIndexToken is MintableERC20Token {
 
 		for (uint x = 0; x < markets.length; x++) {
 			if (outcome == markets[x].getOutcome()) {
+				winningsByWeight = winningsByWeight.add(weights[x]);
 				markets[x].claim(outcome);	
 			}
 		}
