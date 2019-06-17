@@ -27,7 +27,7 @@ contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 		require(_markets.length == _weights.length);
 
 		for (uint256 i = 0; i < _indexes.length; i++) {
-			outcomeIndexTokens.push(new OutcomeIndexToken(_markets, _index[i], _weights, i));
+			outcomeIndexTokens.push(new OutcomeIndexToken(_markets, _indexes[i], _weights, i));
 		}
 
 		for (uint256 x = 0; x < _markets.length; x++) {
