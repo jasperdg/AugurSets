@@ -18,7 +18,7 @@
 
 pragma solidity ^0.4.22;
 
-import "@0x/contracts-utils/contracts/src/SafeMath.sol";
+import "./../../../utils/contracts/src/SafeMath.sol";
 import "./UnlimitedAllowanceERC20Token.sol";
 
 
