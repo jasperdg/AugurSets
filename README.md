@@ -1,5 +1,7 @@
 # AugurSets
 
+DISCLAIMER: this code is ready to be used in a production build.
+
 A protocol build atop of Augur that allows for the creation and trading of indexes of positions in Augur markets. 
 
 ## Getting Started
@@ -33,13 +35,13 @@ cd AugurSets && npm install
 
 ## Running the tests
 
-Run Ganache-cli
+Run Ganache-cli.
 
 ```
 ganache-cli
 ```
 
-Run the test
+Run the test.
 
 ```
 truffle test
