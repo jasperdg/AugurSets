@@ -33,6 +33,12 @@ cd AugurSets && npm install
 
 ## Running the tests
 
+Run Ganache-cli
+
+```
+ganache-cli
+```
+
 Run the test
 
 ```
