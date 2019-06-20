@@ -1,9 +1,15 @@
 pragma solidity >= 0.4.22;
 pragma experimental ABIEncoderV2;
-import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
+
 import "./OutcomeIndexToken.sol";
-import "./MarketOutcomeToken.sol";
-import "./Market.sol";
+
+import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
+
+import "./../libraries/augur/source/contracts/trading/IShareToken.sol";
+import "./../libraries/augur/source/contracts/reporting/IMarket.sol";
+import "./../libraries/augur/source/contracts/trading/CompleteSets.sol";
+import "./../libraries/augur/source/contracts/trading/ICash.sol";
+
 
 /* 
 	TODO: 
@@ -13,26 +19,46 @@ import "./Market.sol";
 contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 	using SafeMathLib for uint256;
 
-	OutcomeIndexToken[] public outcomeIndexTokens;
-	Market[] markets;
+	CompleteSets constant private completeSets = CompleteSets(0x48FCc9d538B9C86bA9D35b3eB0e7f64EE2B4664f);
+	ICash constant private cash = ICash(0x2Da4d465978981BD75BbaC4C9f3bdA10bE0B465c);
+	address constant private augur = 0x990B2D2aF7e87cd015A607c3A95d7622c9bBeDe1;
+
 	mapping(address => uint256) marketsToWeight;
 
+	OutcomeIndexToken[] public outcomeIndexTokens;
+	IMarket[] markets;
+	IShareToken[][] indexes;
+	bool marketsFinalized = false;
+
 	constructor (
-		Market[] _markets,
-		address[][] _indexes,
+		IMarket[] _markets,
 		uint256[] _weights
 	)  
 	public 
 	{
+		// For each market there needs to be a decision on how weight it carries
 		require(_markets.length == _weights.length);
 
-		for (uint256 i = 0; i < _indexes.length; i++) {
-			outcomeIndexTokens.push(new OutcomeIndexToken(_markets, _indexes[i], _weights, i));
+		for (uint256 outcome = 0; outcome < _indexes.length; outcome++) {
+			// Create ERC20 token representing an index of outcomes
+			outcomeIndexTokens.push(new OutcomeIndexToken());
+
+			// Create an array with all ShareTokens
+			IShareToken[] index;
+			for (uint256 x = 0; x < _markets.getNumberOfOutcomes().length; x++) {
+				index.push(address(_market.getOutcomeToken(outcome)));
+			}
+			// Push the index array to an array containing all indexes
+			indexes.push(index);
 		}
 
-		for (uint256 x = 0; x < _markets.length; x++) {
-			marketsToWeight[_markets[x]] = _weights[x];
+		// Map weights to market
+		for (uint256 y = 0; y < _markets.length; y++) {
+			marketsToWeight[_markets[y]] = _weights[y];
 		}
+		
+		// Approve augur to trade Cash for this contract
+		cash.approve(augur, uint256(-1));
 
 		markets = _markets;
 	}
@@ -43,16 +69,72 @@ contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 	public
 	payable {
 		require(msg.value > 0);
+		// Buy a complete set of shares for each market
 		for (uint256 i = 0; i < markets.length; i++) {
+			// Calculate the amount of shares that have to be bought 
 			uint256 weightedAmount = msg.value.mul(marketsToWeight[markets[i]]).div(100);
-			markets[i].buyCompleteSet.value(weightedAmount)();
-
-			for (uint256 x = 0; x < outcomeIndexTokens.length; x++){
-				MarketOutcomeToken(markets[i].outcomeTokens(x)).transfer(address(outcomeIndexTokens[x]), weightedAmount.div(markets[x].numTicks()));
-			}
+			completeSets.publicBuyCompleteSets.value(weightedAmount)(markets[i], weightedAmount);
 		}
+		// For each existing index token mint the amount in eth for the sender
 		for (uint256 y = 0; y < outcomeIndexTokens.length; y++){
 			outcomeIndexTokens[y].mint(msg.sender, msg.value);
 		}
 	}
+
+	// Returns the contract's ShareToken balance of a certain market
+	function getMarketBalance(
+		bool _outcome,
+		IMarket _market
+	) 
+	public 
+	view 
+	returns(uint256 balances)
+	{
+		return _market.getShareToken(_outcome).balanceOf(address(this));
+	}
+
+	// Check if each market in the index is finalized
+	function indexMarketsFinalized() 
+	public 
+	view 
+	returns (bool resolved) 
+	{
+		for (uint i = 0; i < index.length; i++) {
+			if (markets[i].isFinalized() == false) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	// If each market is finalized, this Index can be finalized, the contract will claim all winnings and distribute to the winning outcome holders
+	function finalize() 
+	public 
+	{
+		require(indexMarketsFinalized());
+		require(!marketsFinalized);
+
+		for (uint x = 0; x < markets.length; x++) {
+			if (outcome == markets[x].outcome()) {
+				winningsByWeight = winningsByWeight.add(weights[x]);
+				markets[x].claim(outcome);	
+			}
+		}
+
+		marketsFinalized = true;
+	}
+
+
+	// function claim() 
+	// public 
+	// {
+	// 	require(outcomeIndexTokenFinalized);
+	// 	if (winningsByWeight > 0) {
+	// 		uint256 weightedEarnings = winningsByWeight.mul(balances[msg.sender]).div(100);
+	// 		msg.sender.transfer(weightedEarnings);
+	// 	}
+	// 	_burn(msg.sender, balances[msg.sender]);
+	// }
+
 }
