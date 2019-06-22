@@ -17,9 +17,9 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-// const HDWalletProvider = require('truffle-hdwallet-provider');
-// const { MNEMONIC } = require('./.pvt.js');
-// const infuraKey = "991d53babdd44abea2329bb8db54a425";
+const HDWalletProvider = require('truffle-hdwallet-provider');
+const { MNEMONIC } = require('./.pvt.js');
+const infuraKey = "991d53babdd44abea2329bb8db54a425";
 
 module.exports = {
   /**
@@ -57,14 +57,13 @@ module.exports = {
 
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
-    // rinkeby: {
-    //   provider: () => new HDWalletProvider(MNEMONIC, `https://rinkeby.infura.io/${infuraKey}`),
-    //   network_id: 4,       // Ropsten's id
-    //   gas: 7000000,        // Ropsten has a lower block limit than mainnet
-    //   confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-    //   timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    //   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-    // },
+    rinkeby: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://rinkeby.infura.io/v3/${infuraKey}`),
+      network_id: 4,       // Ropsten's id
+      gas: 6000000,        // Ropsten has a lower block limit than mainnet
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
 
     // Useful for private networks
     // private: {

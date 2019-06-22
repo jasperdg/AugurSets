@@ -11,16 +11,18 @@ const web3 = new Web3("http://localhost:8545")
 
 contract('multiMarketIndexToken', (accounts) => {
 	const accountOne = accounts[0];
+	console.log(accountOne);
 	let shortOIT;
 	let longOIT;
 	let longIndexAddresses;
 	let shortIndexAddresses;
 	let completeIndexSet; 
-	const weights = [20, 40, 40];
+	const weights = [15, 60, 10, 15];
 	const markets = [
-		"0x0",
-		"0x1",
-		"0x2",
+		'0xde3bf3afedd3cdad61c3ad1cd5ee790842ddce03',
+		'0x187a939515f7685caf435411489d433392e2fac3',
+		'0x0fd62a2ce2523bae2d392a7ddc07dbd887fd60a2',
+		'0xaa54585976ae5be545b0b10ff524e0b2da340a0e'
 	]
 	const outcomes = 2; // Just two outcomes in this index
 
@@ -29,7 +31,7 @@ contract('multiMarketIndexToken', (accounts) => {
 	});
 
 	it('Should be able to purchase a complete set of OutcomeIndexTokens', async () => {
-		const { receipt } = await completeIndexSet.buyCompleteSet(oneEthInWei, {from: accountOne, value: oneEthInWei});
+		const { receipt } = await completeIndexSet.buyCompleteSet(oneEthInWei.div(toBN(100)), {from: accountOne, value: oneEthInWei.div(toBN(100)), gas: 6000000});
 		assert.equal(receipt.status, true);
 	});
 

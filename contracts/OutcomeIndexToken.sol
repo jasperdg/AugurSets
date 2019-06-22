@@ -17,6 +17,12 @@ contract OutcomeIndexToken is MintableERC20Token {
 	
 	address minter;
 
+	constructor() 
+	public 
+	{
+		minter = msg.sender;
+	}
+
 	function mint(
 		address _to, 
 		uint256 _amount

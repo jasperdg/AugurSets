@@ -43,7 +43,8 @@ contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 
 		for (uint256 outcome = 0; outcome < _numOutcomes; outcome++) {
 			// Create ERC20 token representing an index of outcomes
-			outcomeIndexTokens.push(new OutcomeIndexToken());
+			OutcomeIndexToken outcomeIndexToken = new OutcomeIndexToken();
+			outcomeIndexTokens.push(outcomeIndexToken);
 
 			// Create an array with all ShareTokens
 			IShareToken[] storage index;
@@ -76,11 +77,11 @@ contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 			// Calculate the amount of shares that have to be bought 
 			uint256 weightedAmount = msg.value.mul(marketsToWeight[markets[i]]).div(100);
 			require(weightedAmount >= markets[i].getNumTicks());
-			completeSets.publicBuyCompleteSets.value(weightedAmount)(markets[i], weightedAmount);
+			completeSets.publicBuyCompleteSets.value(weightedAmount)(markets[i], weightedAmount.div(markets[i].getNumTicks()));
 		}
 		// For each existing index token mint the amount in eth for the sender
-		for (uint256 y = 0; y < outcomeIndexTokens.length; y++){
-			outcomeIndexTokens[y].mint(msg.sender, msg.value);
+		for (uint256 x = 0; x < outcomeIndexTokens.length; x++){
+			outcomeIndexTokens[x].mint(msg.sender, msg.value);
 		}
 	}
 
