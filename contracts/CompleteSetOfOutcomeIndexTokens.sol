@@ -10,12 +10,8 @@ import "./../libraries/augur/source/contracts/reporting/IMarket.sol";
 import "./../libraries/augur/source/contracts/trading/CompleteSets.sol";
 import "./../libraries/augur/source/contracts/trading/ICash.sol";
 import "./../libraries/augur/source/contracts/trading/ClaimTradingProceeds.sol";
-
-/* 
-	TODO: 
-	- Make more readible by adding in comments and temp variables
-*/
-
+import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
+ 
 contract CompleteSetOfOutcomeIndexTokens is MintableERC20Token {
 	using SafeMathLib for uint256;
 

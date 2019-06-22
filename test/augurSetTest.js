@@ -1,17 +1,18 @@
 const CompleteSetOfOutcomeIndexTokens = artifacts.require("CompleteSetOfOutcomeIndexTokens.sol");
 const Market = artifacts.require("Market.sol");
-const { abi } = require("./../build/contracts/OutcomeIndexToken");
+const { abi } = require("./../build/contracts/CompleteSetOfOutcomeIndexTokens");
 const utils = require("web3-utils");
 const { fromWei, toWei, toBN } = utils;
 const { mineTx } = require("./../utils/transactionMinedAsync");
 const Web3 = require('web3');
 const oneEthInWei = toBN(toWei("1", "ether"));
 const NUM_TICKS = 10000;
-const web3 = new Web3("http://localhost:8545")
+const { INFURA_KEY } = require("./../.pvt.js");
+
+const web3 = new Web3(`https://rinkeby.infura.io/v3/${INFURA_KEY}`)
 
 contract('multiMarketIndexToken', (accounts) => {
 	const accountOne = accounts[0];
-	console.log(accountOne);
 	let shortOIT;
 	let longOIT;
 	let longIndexAddresses;
@@ -35,53 +36,46 @@ contract('multiMarketIndexToken', (accounts) => {
 		assert.equal(receipt.status, true);
 	});
 
-	// it('Should be able to get both instances of the index tokens', async () => {
-	// 	const shortOITAddress = await completeIndexSet.outcomeIndexTokens("0");
-	// 	const longOITAddress = await completeIndexSet.outcomeIndexTokens("1");
-	// 	shortOIT = new web3.eth.Contract(abi, shortOITAddress);
-	// 	longOIT = new web3.eth.Contract(abi, longOITAddress);
-	// });
+	it('Should be able to get both instances of the index tokens', async () => {
+		const shortOITAddress = await completeIndexSet.outcomeIndexTokens("0");
+		const longOITAddress = await completeIndexSet.outcomeIndexTokens("1");
+		shortOIT = new web3.eth.Contract(abi, shortOITAddress);
+		longOIT = new web3.eth.Contract(abi, longOITAddress);
+	});
 
-	// it('Balance of indexTokens should be increased for each market in the index', async () => {
-	// 	const shortPromArr = shortIndexAddresses.map(address => {
-	// 		return shortOIT.methods.getIndexBalance(address).call();
-	// 	});
-
-	// 	const longPromArr = longIndexAddresses.map(address => {
-	// 		return longOIT.methods.getIndexBalance(address).call();
-	// 	});
+	it('Balance of indexTokens should be increased for each market in the index', async () => {
+		const shortIndexBalancePromArr = markets.map(address => completeIndexSet.getMarketBalance(0, address));
+		const longIndexBalancePromArr = markets.map(address => completeIndexSet.getMarketBalance(1, address));
 		
-	// 	const shortBalances = await Promise.all(shortPromArr);
-	// 	const longBalances = await Promise.all(longPromArr);
+		const shortBalances = await Promise.all(shortIndexBalancePromArr);
+		const longBalances = await Promise.all(longIndexBalancePromArr);
 
-	// 	shortBalances.forEach((balance, i) => {
-	// 		const weightedBalance = oneEthInWei.mul(toBN(weights[i])).div(toBN(NUM_TICKS * 100));
-	// 		assert.equal(balance.toString(), weightedBalance.toString());
-	// 	});
+		shortBalances.forEach((balance, i) => {
+			const weightedBalance = oneEthInWei.mul(toBN(weights[i])).div(toBN(NUM_TICKS * 10000));
+			assert.equal(balance.toString(), weightedBalance.toString());
+		});
 
-	// 	longBalances.forEach((balance, i) => {
-	// 		const weightedBalance = oneEthInWei.mul(toBN(weights[i])).div(toBN(NUM_TICKS * 100));
-	// 		assert.equal(balance.toString(), weightedBalance.toString());
-	// 	});
-	// });
+		longBalances.forEach((balance, i) => {
+			const weightedBalance = oneEthInWei.mul(toBN(weights[i])).div(toBN(NUM_TICKS * 10000));
+			assert.equal(balance.toString(), weightedBalance.toString());
+		});
+	});
 
-	// it('Balance of accountOne should be equal to 1 of each index tokens', async () => {
-	// 	const accountOneShortBalance = await shortOIT.methods.balanceOf(accountOne).call();
-	// 	const accountOneLongBalance = await longOIT.methods.balanceOf(accountOne).call();
+	it('Balance of accountOne should be equal to 1 for each index token', async () => {
+		const accountOneShortBalance = await shortOIT.methods.balanceOf(accountOne).call();
+		const accountOneLongBalance = await longOIT.methods.balanceOf(accountOne).call();
 
-	// 	console.log("Short OutcomeIndexToken balance:", accountOneShortBalance.toString());
-	// 	assert.equal(accountOneShortBalance.toString(), oneEthInWei.toString());
-	// 	console.log("Long OutcomeIndexToken balance:", accountOneLongBalance.toString());
-	// 	assert.equal(accountOneLongBalance.toString(), oneEthInWei.toString());
-	// });
+		console.log("Short OutcomeIndexToken balance:", accountOneShortBalance.toString());
+		assert.equal(accountOneShortBalance.toString(), oneEthInWei.div(toBN(100)).toString());
+		console.log("Long OutcomeIndexToken balance:", accountOneLongBalance.toString());
+		assert.equal(accountOneLongBalance.toString(), oneEthInWei.div(toBN(100)).toString());
+	});
 
-	// it('Should be able to check if the indexes are finalized', async () => {
-	// 	const shortMarketsFinalized = await shortOIT.methods.indexMarketsFinalized().call();
-	// 	const longMarketsFinalized = await longOIT.methods.indexMarketsFinalized().call();
+	it('Should be able to check if the indexes are finalized', async () => {
+		const marketsFinalized = await completeIndexSet.indexMarketsFinalized();
 
-	// 	assert.equal(shortMarketsFinalized, true);
-	// 	assert.equal(longMarketsFinalized, true);
-	// });
+		assert.equal(marketsFinalized, false);
+	});
 
 	// it('Should be able to withdraw the IndexToken their eth in exchange for tokens in each outcome token.', async () => {	
 

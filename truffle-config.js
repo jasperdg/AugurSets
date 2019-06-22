@@ -18,8 +18,7 @@
  *
  */
 const HDWalletProvider = require('truffle-hdwallet-provider');
-const { MNEMONIC } = require('./.pvt.js');
-const infuraKey = "991d53babdd44abea2329bb8db54a425";
+const { MNEMONIC, INFURA_KEY } = require('./.pvt.js');
 
 module.exports = {
   /**
@@ -58,7 +57,7 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     rinkeby: {
-      provider: () => new HDWalletProvider(MNEMONIC, `https://rinkeby.infura.io/v3/${infuraKey}`),
+      provider: () => new HDWalletProvider(MNEMONIC, `https://rinkeby.infura.io/v3/${INFURA_KEY}`),
       network_id: 4,       // Ropsten's id
       gas: 6000000,        // Ropsten has a lower block limit than mainnet
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
