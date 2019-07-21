@@ -1,0 +1,433 @@
+{
+  "contractName": "ITime",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_controller",
+          "type": "address"
+        }
+      ],
+      "name": "setController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTypeName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTimestamp",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.22;\n\nimport './Controlled.sol';\nimport './libraries/Initializable.sol';\nimport './libraries/ITyped.sol';\n\n\ncontract ITime is Controlled, ITyped {\n    function getTimestamp() external view returns (uint256);\n}\n",
+  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/ITime.sol",
+  "ast": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/ITime.sol",
+    "exportedSymbols": {
+      "ITime": [
+        4398
+      ]
+    },
+    "id": 4399,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4385,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/Controlled.sol",
+        "file": "./Controlled.sol",
+        "id": 4386,
+        "nodeType": "ImportDirective",
+        "scope": 4399,
+        "sourceUnit": 3437,
+        "src": "26:26:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Initializable.sol",
+        "file": "./libraries/Initializable.sol",
+        "id": 4387,
+        "nodeType": "ImportDirective",
+        "scope": 4399,
+        "sourceUnit": 5209,
+        "src": "53:39:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/ITyped.sol",
+        "file": "./libraries/ITyped.sol",
+        "id": 4388,
+        "nodeType": "ImportDirective",
+        "scope": 4399,
+        "sourceUnit": 5164,
+        "src": "93:32:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 4389,
+              "name": "Controlled",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3436,
+              "src": "146:10:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Controlled_$3436",
+                "typeString": "contract Controlled"
+              }
+            },
+            "id": 4390,
+            "nodeType": "InheritanceSpecifier",
+            "src": "146:10:14"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 4391,
+              "name": "ITyped",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5163,
+              "src": "158:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ITyped_$5163",
+                "typeString": "contract ITyped"
+              }
+            },
+            "id": 4392,
+            "nodeType": "InheritanceSpecifier",
+            "src": "158:6:14"
+          }
+        ],
+        "contractDependencies": [
+          3436,
+          4340,
+          5163
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 4398,
+        "linearizedBaseContracts": [
+          4398,
+          5163,
+          3436,
+          4340
+        ],
+        "name": "ITime",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 4397,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getTimestamp",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4393,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "192:2:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4396,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4395,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4397,
+                  "src": "218:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4394,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "218:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "217:9:14"
+            },
+            "scope": 4398,
+            "src": "171:56:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4399,
+        "src": "128:101:14"
+      }
+    ],
+    "src": "0:230:14"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/ITime.sol",
+    "exportedSymbols": {
+      "ITime": [
+        4398
+      ]
+    },
+    "id": 4399,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4385,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:14"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/Controlled.sol",
+        "file": "./Controlled.sol",
+        "id": 4386,
+        "nodeType": "ImportDirective",
+        "scope": 4399,
+        "sourceUnit": 3437,
+        "src": "26:26:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Initializable.sol",
+        "file": "./libraries/Initializable.sol",
+        "id": 4387,
+        "nodeType": "ImportDirective",
+        "scope": 4399,
+        "sourceUnit": 5209,
+        "src": "53:39:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/ITyped.sol",
+        "file": "./libraries/ITyped.sol",
+        "id": 4388,
+        "nodeType": "ImportDirective",
+        "scope": 4399,
+        "sourceUnit": 5164,
+        "src": "93:32:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 4389,
+              "name": "Controlled",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3436,
+              "src": "146:10:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Controlled_$3436",
+                "typeString": "contract Controlled"
+              }
+            },
+            "id": 4390,
+            "nodeType": "InheritanceSpecifier",
+            "src": "146:10:14"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 4391,
+              "name": "ITyped",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5163,
+              "src": "158:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ITyped_$5163",
+                "typeString": "contract ITyped"
+              }
+            },
+            "id": 4392,
+            "nodeType": "InheritanceSpecifier",
+            "src": "158:6:14"
+          }
+        ],
+        "contractDependencies": [
+          3436,
+          4340,
+          5163
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 4398,
+        "linearizedBaseContracts": [
+          4398,
+          5163,
+          3436,
+          4340
+        ],
+        "name": "ITime",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 4397,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getTimestamp",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4393,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "192:2:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4396,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4395,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4397,
+                  "src": "218:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4394,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "218:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "217:9:14"
+            },
+            "scope": 4398,
+            "src": "171:56:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4399,
+        "src": "128:101:14"
+      }
+    ],
+    "src": "0:230:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.22+commit.4cb486ee.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-07-15T12:03:29.483Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

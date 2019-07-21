@@ -19,6 +19,7 @@
  */
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const { MNEMONIC, INFURA_KEY } = require('./.pvt.js');
+const { PARITY_PORT } = require("./constants")
 
 module.exports = {
   /**
@@ -39,9 +40,11 @@ module.exports = {
     // options below to some value.
     //
     development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 8545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: PARITY_PORT,            
+      gas: 6500000,
+      gasPrice: 10000000000,
+      network_id: "*",       // Any network (default: none)
     },
 
     // Another network with more advanced options...
@@ -66,9 +69,10 @@ module.exports = {
 
     // Useful for private networks
     // private: {
-      // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
-      // network_id: 2111,   // This network is yours, in the cloud.
-      // production: true    // Treats this network as if it was a public net. (default: false)
+    //   host: "127.0.0.1",
+    //   port: ""
+    //   network_id: 2111,   // This network is yours, in the cloud.
+    //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
   },
 

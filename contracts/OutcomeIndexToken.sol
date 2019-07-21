@@ -24,4 +24,13 @@ contract OutcomeIndexToken is MintableERC20Token {
 		require(msg.sender == minter);
 		_mint(_to, _amount);
 	}
+
+	function burn(
+		address from, 
+		uint256 _amount
+	)
+	public {
+		require(msg.sender == minter);
+		_burn(from, _amount);
+	}
 }

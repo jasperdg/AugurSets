@@ -11,7 +11,6 @@ const toTxHash = (value) => {
 }
 
 const mineTx = (promiseOrTx, interval) => {
-  console.log("doing this");
   return Promise.resolve(promiseOrTx)
     .then(tx => {
       const txHash = toTxHash(tx);
@@ -35,6 +34,4 @@ const mineTx = (promiseOrTx, interval) => {
     });
 }
 
-module.exports = {
-  mineTx
-};
+module.exports = mineTx;

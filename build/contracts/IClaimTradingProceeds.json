@@ -1,0 +1,103 @@
+{
+  "contractName": "IClaimTradingProceeds",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820a4675ffb3c18a065f8a91933651946204cc3a0ebb3e9416cd746266bf4f6c98f0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820a4675ffb3c18a065f8a91933651946204cc3a0ebb3e9416cd746266bf4f6c98f0029",
+  "sourceMap": "28:35:61:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:35:61;;;;;;;",
+  "deployedSourceMap": "28:35:61:-;;;;;",
+  "source": "pragma solidity ^0.4.22;\n\n\n\ncontract IClaimTradingProceeds {\n\n}\n",
+  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
+  "ast": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
+    "exportedSymbols": {
+      "IClaimTradingProceeds": [
+        13306
+      ]
+    },
+    "id": 13307,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13305,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:61"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 13306,
+        "linearizedBaseContracts": [
+          13306
+        ],
+        "name": "IClaimTradingProceeds",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 13307,
+        "src": "28:35:61"
+      }
+    ],
+    "src": "0:64:61"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
+    "exportedSymbols": {
+      "IClaimTradingProceeds": [
+        13306
+      ]
+    },
+    "id": 13307,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13305,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:61"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 13306,
+        "linearizedBaseContracts": [
+          13306
+        ],
+        "name": "IClaimTradingProceeds",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 13307,
+        "src": "28:35:61"
+      }
+    ],
+    "src": "0:64:61"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.22+commit.4cb486ee.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-07-15T12:03:29.548Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

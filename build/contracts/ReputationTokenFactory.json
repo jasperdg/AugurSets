@@ -1,0 +1,1059 @@
+{
+  "contractName": "ReputationTokenFactory",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_controller",
+          "type": "address"
+        },
+        {
+          "name": "_universe",
+          "type": "address"
+        }
+      ],
+      "name": "createReputationToken",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506106db806100206000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063812f82d914610046575b600080fd5b34801561005257600080fd5b506100a7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000806000846100f7610259565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001807f52657075746174696f6e546f6b656e0000000000000000000000000000000000815250602001915050604051809103906000f080158015610171573d6000803e3d6000fd5b5091508190508073ffffffffffffffffffffffffffffffffffffffff1663c4d66de8856040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561021257600080fd5b505af1158015610226573d6000803e3d6000fd5b505050506040513d602081101561023c57600080fd5b810190808051906020019092919050505050809250505092915050565b6040516104468061026a833901905600608060405234801561001057600080fd5b506040516040806104468339810180604052810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060018160001916905550505061036d806100d96000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461018757806392eefe9b146101de578063bef72fa214610239575b60008060010260015460001916141561006f57610184565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f39ec1f76001546040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b505050506040513d602081101561013357600080fd5b81019080805190602001909291905050509050604051601f19601f36011680820160405236600083376000803684865af4806000811461017f576040513d81016040523d6000823e3d81f35b600080fd5b50005b34801561019357600080fd5b5061019c61026c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ea57600080fd5b5061021f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610295565b604051808215151515815260200191505060405180910390f35b34801561024557600080fd5b5061024e61033b565b60405180826000191660001916815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060019050919050565b600154815600a165627a7a723058202e512e870db6d069790c0e290c4f3ba94fb16fb97b62f0de6095bd5ff18551c60029a165627a7a7230582067116d3bbd84fa0706b91227743d2f83de67c274bb6313f61ce3deb435d0a76a0029",
+  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063812f82d914610046575b600080fd5b34801561005257600080fd5b506100a7600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100e9565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000806000846100f7610259565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001807f52657075746174696f6e546f6b656e0000000000000000000000000000000000815250602001915050604051809103906000f080158015610171573d6000803e3d6000fd5b5091508190508073ffffffffffffffffffffffffffffffffffffffff1663c4d66de8856040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561021257600080fd5b505af1158015610226573d6000803e3d6000fd5b505050506040513d602081101561023c57600080fd5b810190808051906020019092919050505050809250505092915050565b6040516104468061026a833901905600608060405234801561001057600080fd5b506040516040806104468339810180604052810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060018160001916905550505061036d806100d96000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461018757806392eefe9b146101de578063bef72fa214610239575b60008060010260015460001916141561006f57610184565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f39ec1f76001546040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b505050506040513d602081101561013357600080fd5b81019080805190602001909291905050509050604051601f19601f36011680820160405236600083376000803684865af4806000811461017f576040513d81016040523d6000823e3d81f35b600080fd5b50005b34801561019357600080fd5b5061019c61026c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ea57600080fd5b5061021f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610295565b604051808215151515815260200191505060405180910390f35b34801561024557600080fd5b5061024e61033b565b60405180826000191660001916815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060019050919050565b600154815600a165627a7a723058202e512e870db6d069790c0e290c4f3ba94fb16fb97b62f0de6095bd5ff18551c60029a165627a7a7230582067116d3bbd84fa0706b91227743d2f83de67c274bb6313f61ce3deb435d0a76a0029",
+  "sourceMap": "184:391:23:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;184:391:23;;;;;;;",
+  "deployedSourceMap": "184:391:23:-;;;;;;;;;;;;;;;;;;;;;;;;222:351;;8:9:-1;5:2;;;30:1;27;20:12;5:2;222:351:23;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;315:16;343:20;421:33;380:11;366:45;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;366:45:23;343:68;;474:10;421:64;;495:16;:27;;;523:9;495:38;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;495:38:23;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;495:38:23;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;495:38:23;;;;;;;;;;;;;;;;;550:16;543:23;;222:351;;;;;;:::o;184:391::-;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.22;\n\n\nimport './../libraries/Delegator.sol';\nimport './../IController.sol';\nimport './../reporting/IUniverse.sol';\nimport './../reporting/IReputationToken.sol';\n\n\ncontract ReputationTokenFactory {\n    function createReputationToken(IController _controller, IUniverse _universe) public returns (IReputationToken) {\n        Delegator _delegator = new Delegator(_controller, \"ReputationToken\");\n        IReputationToken _reputationToken = IReputationToken(_delegator);\n        _reputationToken.initialize(_universe);\n        return _reputationToken;\n    }\n}\n",
+  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/factories/ReputationTokenFactory.sol",
+  "ast": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/factories/ReputationTokenFactory.sol",
+    "exportedSymbols": {
+      "ReputationTokenFactory": [
+        4889
+      ]
+    },
+    "id": 4890,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4852,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:23"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+        "file": "./../libraries/Delegator.sol",
+        "id": 4853,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 5141,
+        "src": "27:38:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./../IController.sol",
+        "id": 4854,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 4384,
+        "src": "66:30:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IUniverse.sol",
+        "file": "./../reporting/IUniverse.sol",
+        "id": 4855,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 8167,
+        "src": "97:38:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IReputationToken.sol",
+        "file": "./../reporting/IReputationToken.sol",
+        "id": 4856,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 7895,
+        "src": "136:45:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          5140
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4889,
+        "linearizedBaseContracts": [
+          4889
+        ],
+        "name": "ReputationTokenFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4887,
+              "nodeType": "Block",
+              "src": "333:240:23",
+              "statements": [
+                {
+                  "assignments": [
+                    4866
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4866,
+                      "name": "_delegator",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4888,
+                      "src": "343:20:23",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Delegator_$5140",
+                        "typeString": "contract Delegator"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4865,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "343:9:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4872,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4869,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4858,
+                        "src": "380:11:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "52657075746174696f6e546f6b656e",
+                        "id": 4870,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "393:17:23",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_32c0acb97d993e7f678545eccaee6dfb0bdcf32d669674c1f2e79cee973427ed",
+                          "typeString": "literal_string \"ReputationToken\""
+                        },
+                        "value": "ReputationToken"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_32c0acb97d993e7f678545eccaee6dfb0bdcf32d669674c1f2e79cee973427ed",
+                          "typeString": "literal_string \"ReputationToken\""
+                        }
+                      ],
+                      "id": 4868,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "366:13:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_IController_$4383_$_t_bytes32_$returns$_t_contract$_Delegator_$5140_$",
+                        "typeString": "function (contract IController,bytes32) returns (contract Delegator)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4867,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "370:9:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      }
+                    },
+                    "id": 4871,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "366:45:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Delegator_$5140",
+                      "typeString": "contract Delegator"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "343:68:23"
+                },
+                {
+                  "assignments": [
+                    4874
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4874,
+                      "name": "_reputationToken",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4888,
+                      "src": "421:33:23",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                        "typeString": "contract IReputationToken"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4873,
+                        "name": "IReputationToken",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 7894,
+                        "src": "421:16:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                          "typeString": "contract IReputationToken"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4878,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4876,
+                        "name": "_delegator",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4866,
+                        "src": "474:10:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      ],
+                      "id": 4875,
+                      "name": "IReputationToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7894,
+                      "src": "457:16:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_IReputationToken_$7894_$",
+                        "typeString": "type(contract IReputationToken)"
+                      }
+                    },
+                    "id": 4877,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "457:28:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "421:64:23"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4882,
+                        "name": "_universe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4860,
+                        "src": "523:9:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4879,
+                        "name": "_reputationToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4874,
+                        "src": "495:16:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                          "typeString": "contract IReputationToken"
+                        }
+                      },
+                      "id": 4881,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "initialize",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7809,
+                      "src": "495:27:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_contract$_IUniverse_$8166_$returns$_t_bool_$",
+                        "typeString": "function (contract IUniverse) external returns (bool)"
+                      }
+                    },
+                    "id": 4883,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "495:38:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4884,
+                  "nodeType": "ExpressionStatement",
+                  "src": "495:38:23"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4885,
+                    "name": "_reputationToken",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 4874,
+                    "src": "550:16:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "functionReturnParameters": 4864,
+                  "id": 4886,
+                  "nodeType": "Return",
+                  "src": "543:23:23"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4888,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "createReputationToken",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4861,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4858,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4888,
+                  "src": "253:23:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4857,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4383,
+                    "src": "253:11:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4860,
+                  "name": "_universe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4888,
+                  "src": "278:19:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniverse_$8166",
+                    "typeString": "contract IUniverse"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4859,
+                    "name": "IUniverse",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8166,
+                    "src": "278:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IUniverse_$8166",
+                      "typeString": "contract IUniverse"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "252:46:23"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4864,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4863,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4888,
+                  "src": "315:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                    "typeString": "contract IReputationToken"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4862,
+                    "name": "IReputationToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7894,
+                    "src": "315:16:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "314:18:23"
+            },
+            "scope": 4889,
+            "src": "222:351:23",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4890,
+        "src": "184:391:23"
+      }
+    ],
+    "src": "0:576:23"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/factories/ReputationTokenFactory.sol",
+    "exportedSymbols": {
+      "ReputationTokenFactory": [
+        4889
+      ]
+    },
+    "id": 4890,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4852,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:23"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+        "file": "./../libraries/Delegator.sol",
+        "id": 4853,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 5141,
+        "src": "27:38:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./../IController.sol",
+        "id": 4854,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 4384,
+        "src": "66:30:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IUniverse.sol",
+        "file": "./../reporting/IUniverse.sol",
+        "id": 4855,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 8167,
+        "src": "97:38:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IReputationToken.sol",
+        "file": "./../reporting/IReputationToken.sol",
+        "id": 4856,
+        "nodeType": "ImportDirective",
+        "scope": 4890,
+        "sourceUnit": 7895,
+        "src": "136:45:23",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          5140
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4889,
+        "linearizedBaseContracts": [
+          4889
+        ],
+        "name": "ReputationTokenFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4887,
+              "nodeType": "Block",
+              "src": "333:240:23",
+              "statements": [
+                {
+                  "assignments": [
+                    4866
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4866,
+                      "name": "_delegator",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4888,
+                      "src": "343:20:23",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Delegator_$5140",
+                        "typeString": "contract Delegator"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4865,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "343:9:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4872,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4869,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4858,
+                        "src": "380:11:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "52657075746174696f6e546f6b656e",
+                        "id": 4870,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "393:17:23",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_32c0acb97d993e7f678545eccaee6dfb0bdcf32d669674c1f2e79cee973427ed",
+                          "typeString": "literal_string \"ReputationToken\""
+                        },
+                        "value": "ReputationToken"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_32c0acb97d993e7f678545eccaee6dfb0bdcf32d669674c1f2e79cee973427ed",
+                          "typeString": "literal_string \"ReputationToken\""
+                        }
+                      ],
+                      "id": 4868,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "366:13:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_IController_$4383_$_t_bytes32_$returns$_t_contract$_Delegator_$5140_$",
+                        "typeString": "function (contract IController,bytes32) returns (contract Delegator)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4867,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "370:9:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      }
+                    },
+                    "id": 4871,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "366:45:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Delegator_$5140",
+                      "typeString": "contract Delegator"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "343:68:23"
+                },
+                {
+                  "assignments": [
+                    4874
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4874,
+                      "name": "_reputationToken",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4888,
+                      "src": "421:33:23",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                        "typeString": "contract IReputationToken"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4873,
+                        "name": "IReputationToken",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 7894,
+                        "src": "421:16:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                          "typeString": "contract IReputationToken"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4878,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4876,
+                        "name": "_delegator",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4866,
+                        "src": "474:10:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      ],
+                      "id": 4875,
+                      "name": "IReputationToken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 7894,
+                      "src": "457:16:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_contract$_IReputationToken_$7894_$",
+                        "typeString": "type(contract IReputationToken)"
+                      }
+                    },
+                    "id": 4877,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "457:28:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "421:64:23"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4882,
+                        "name": "_universe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4860,
+                        "src": "523:9:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4879,
+                        "name": "_reputationToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4874,
+                        "src": "495:16:23",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                          "typeString": "contract IReputationToken"
+                        }
+                      },
+                      "id": 4881,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "initialize",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7809,
+                      "src": "495:27:23",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_contract$_IUniverse_$8166_$returns$_t_bool_$",
+                        "typeString": "function (contract IUniverse) external returns (bool)"
+                      }
+                    },
+                    "id": 4883,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "495:38:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4884,
+                  "nodeType": "ExpressionStatement",
+                  "src": "495:38:23"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4885,
+                    "name": "_reputationToken",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 4874,
+                    "src": "550:16:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "functionReturnParameters": 4864,
+                  "id": 4886,
+                  "nodeType": "Return",
+                  "src": "543:23:23"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4888,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "createReputationToken",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4861,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4858,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4888,
+                  "src": "253:23:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4857,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4383,
+                    "src": "253:11:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4860,
+                  "name": "_universe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4888,
+                  "src": "278:19:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniverse_$8166",
+                    "typeString": "contract IUniverse"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4859,
+                    "name": "IUniverse",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8166,
+                    "src": "278:9:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IUniverse_$8166",
+                      "typeString": "contract IUniverse"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "252:46:23"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 4864,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4863,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4888,
+                  "src": "315:16:23",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                    "typeString": "contract IReputationToken"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4862,
+                    "name": "IReputationToken",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7894,
+                    "src": "315:16:23",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "314:18:23"
+            },
+            "scope": 4889,
+            "src": "222:351:23",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4890,
+        "src": "184:391:23"
+      }
+    ],
+    "src": "0:576:23"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.22+commit.4cb486ee.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-07-15T12:03:29.487Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
