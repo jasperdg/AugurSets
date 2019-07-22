@@ -11,9 +11,6 @@ describe("TradeAndReport", () => {
     it("#tradeAndReport", async () => {
         await fixture.approveCentralAuthority();
 
-        let ethBalance = await fixture.getEthBalance();
-        console.log("Starting ETH balance", ethBalance.toString(10));
-
         // Create a market
         console.log("The CASH address: ", fixture.cash.address);
         console.log("The universe address: ", fixture.universe.address);
