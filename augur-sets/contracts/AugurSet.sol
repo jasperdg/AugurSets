@@ -3,8 +3,6 @@ pragma experimental ABIEncoderV2;
 
 import "./OutcomeIndexToken.sol";
 
-import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
-
 import "./../libraries/augur/source/contracts/reporting/IMarket.sol";
 import "./../libraries/augur/source/contracts/trading/IShareToken.sol";
 import "./../libraries/augur/source/contracts/trading/CompleteSets.sol";
@@ -13,7 +11,7 @@ import "./../libraries/augur/source/contracts/trading/ClaimTradingProceeds.sol";
 
 import "./../libraries/openzeppelin-solidity/SafeMathLib.sol";
  
-contract AugurSet is MintableERC20Token {
+contract AugurSet {
 	using SafeMathLib for uint256;
 
 	CompleteSets internal completeSets;
@@ -62,7 +60,7 @@ contract AugurSet is MintableERC20Token {
 			indexes.push(index);
 		}
 
-		// Map weights to market
+		// Map weights to markets
 		for (uint256 y = 0; y < _markets.length; y++) {
 			marketsToWeight[_markets[y]] = _weights[y];
 		}
@@ -103,7 +101,7 @@ contract AugurSet is MintableERC20Token {
 		}
 		// For each existing index token mint the amount in eth for the sender
 		for (uint256 x = 0; x < outcomeIndexTokens.length; x++){
-			outcomeIndexTokens[x].mint(msg.sender, totalSharesBought);
+			outcomeIndexTokens[x].publicMint(msg.sender, totalSharesBought);
 		}
 
 		// Transfer back all eth that's left over
@@ -137,7 +135,7 @@ contract AugurSet is MintableERC20Token {
 		augurSetFinalized = true;
 	}
 
-	// Calculates weighted payout distribution
+	// Calculates and sets weighted payout distribution
 	function calculatePayoutDistribution()
 	private 
 	{
@@ -184,7 +182,7 @@ contract AugurSet is MintableERC20Token {
 					uint256 totalFee = calculateFees(balance.mul(payoutNumerator));
 					totalProceeds = totalProceeds.add(balance.mul(payoutNumerator)).sub(totalFee);
 				}
-				outcomeIndexTokens[i].burn(msg.sender, balance);
+				outcomeIndexTokens[i].publicBurn(msg.sender, balance);
 			}
 		}
 		msg.sender.transfer(totalProceeds);
@@ -237,6 +235,4 @@ contract AugurSet is MintableERC20Token {
 	{
 		return _market.getShareToken(_outcome).balanceOf(address(this));
 	}
-
-
 }

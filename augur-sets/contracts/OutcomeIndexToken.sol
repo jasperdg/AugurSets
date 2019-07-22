@@ -1,11 +1,11 @@
 pragma solidity >= 0.4.22;
 
-import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
+import "./../libraries/0x-tokens/MintableERC20Token.sol";
 
 contract OutcomeIndexToken is MintableERC20Token {
 
-	string public name = "AugurSet";
-	string public symbol = "AS";
+	string public name = "Outcome Index Token";
+	string public symbol = "OIT";
 	uint256 public decimals = 18;
 	
 	address minter;
@@ -16,21 +16,23 @@ contract OutcomeIndexToken is MintableERC20Token {
 		minter = msg.sender;
 	}
 
-	function mint(
+	function publicMint(
 		address _to, 
 		uint256 _amount
 	)
-	public {
+	public 
+	{
 		require(msg.sender == minter);
 		_mint(_to, _amount);
 	}
 
-	function burn(
-		address from, 
+	function publicBurn(
+		address _from, 
 		uint256 _amount
 	)
-	public {
+	public 
+	{
 		require(msg.sender == minter);
-		_burn(from, _amount);
+		_burn(_from, _amount);
 	}
 }

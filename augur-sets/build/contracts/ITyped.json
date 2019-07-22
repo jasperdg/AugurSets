@@ -21,19 +21,19 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.22;\n\n\ncontract ITyped {\n    function getTypeName() public view returns (bytes32);\n}\n",
-  "sourcePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/ITyped.sol",
+  "sourcePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/ITyped.sol",
   "ast": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/ITyped.sol",
+    "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/ITyped.sol",
     "exportedSymbols": {
       "ITyped": [
-        2395
+        2230
       ]
     },
-    "id": 2396,
+    "id": 2231,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2389,
+        "id": 2224,
         "literals": [
           "solidity",
           "^",
@@ -41,7 +41,7 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:14"
+        "src": "0:24:13"
       },
       {
         "baseContracts": [],
@@ -49,9 +49,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2395,
+        "id": 2230,
         "linearizedBaseContracts": [
-          2395
+          2230
         ],
         "name": "ITyped",
         "nodeType": "ContractDefinition",
@@ -59,7 +59,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2394,
+            "id": 2229,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -67,23 +67,23 @@
             "name": "getTypeName",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2390,
+              "id": 2225,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "69:2:14"
+              "src": "69:2:13"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2393,
+              "id": 2228,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2392,
+                  "id": 2227,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2394,
-                  "src": "93:7:14",
+                  "scope": 2229,
+                  "src": "93:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -91,10 +91,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2391,
+                    "id": 2226,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "93:7:14",
+                    "src": "93:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -104,33 +104,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "92:9:14"
+              "src": "92:9:13"
             },
-            "scope": 2395,
-            "src": "49:53:14",
+            "scope": 2230,
+            "src": "49:53:13",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2396,
-        "src": "27:77:14"
+        "scope": 2231,
+        "src": "27:77:13"
       }
     ],
-    "src": "0:105:14"
+    "src": "0:105:13"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/ITyped.sol",
+    "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/ITyped.sol",
     "exportedSymbols": {
       "ITyped": [
-        2395
+        2230
       ]
     },
-    "id": 2396,
+    "id": 2231,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2389,
+        "id": 2224,
         "literals": [
           "solidity",
           "^",
@@ -138,7 +138,7 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:14"
+        "src": "0:24:13"
       },
       {
         "baseContracts": [],
@@ -146,9 +146,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2395,
+        "id": 2230,
         "linearizedBaseContracts": [
-          2395
+          2230
         ],
         "name": "ITyped",
         "nodeType": "ContractDefinition",
@@ -156,7 +156,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2394,
+            "id": 2229,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -164,23 +164,23 @@
             "name": "getTypeName",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2390,
+              "id": 2225,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "69:2:14"
+              "src": "69:2:13"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2393,
+              "id": 2228,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2392,
+                  "id": 2227,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2394,
-                  "src": "93:7:14",
+                  "scope": 2229,
+                  "src": "93:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -188,10 +188,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2391,
+                    "id": 2226,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "93:7:14",
+                    "src": "93:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -201,20 +201,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "92:9:14"
+              "src": "92:9:13"
             },
-            "scope": 2395,
-            "src": "49:53:14",
+            "scope": 2230,
+            "src": "49:53:13",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2396,
-        "src": "27:77:14"
+        "scope": 2231,
+        "src": "27:77:13"
       }
     ],
-    "src": "0:105:14"
+    "src": "0:105:13"
   },
   "compiler": {
     "name": "solc",
@@ -222,7 +222,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-07-22T13:06:58.156Z",
+  "updatedAt": "2019-07-22T15:25:21.358Z",
   "devdoc": {
     "methods": {}
   },

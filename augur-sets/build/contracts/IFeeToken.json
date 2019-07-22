@@ -273,19 +273,19 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.22;\n\nimport './../libraries/token/ERC20.sol';\nimport './../libraries/Initializable.sol';\nimport './../reporting/IFeeWindow.sol';\n\n\ncontract IFeeToken is ERC20, Initializable {\n    function initialize(IFeeWindow _feeWindow) public returns (bool);\n    function getFeeWindow() public view returns (IFeeWindow);\n    function feeWindowBurn(address _target, uint256 _amount) public returns (bool);\n    function mintForReportingParticipant(address _target, uint256 _amount) public returns (bool);\n}",
-  "sourcePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IFeeToken.sol",
+  "sourcePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/reporting/IFeeToken.sol",
   "ast": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IFeeToken.sol",
+    "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/reporting/IFeeToken.sol",
     "exportedSymbols": {
       "IFeeToken": [
-        2855
+        2690
       ]
     },
-    "id": 2856,
+    "id": 2691,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2817,
+        "id": 2652,
         "literals": [
           "solidity",
           "^",
@@ -293,38 +293,38 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:22"
+        "src": "0:24:21"
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20.sol",
+        "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/token/ERC20.sol",
         "file": "./../libraries/token/ERC20.sol",
-        "id": 2818,
+        "id": 2653,
         "nodeType": "ImportDirective",
-        "scope": 2856,
-        "sourceUnit": 2749,
-        "src": "26:40:22",
+        "scope": 2691,
+        "sourceUnit": 2584,
+        "src": "26:40:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/Initializable.sol",
+        "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/Initializable.sol",
         "file": "./../libraries/Initializable.sol",
-        "id": 2819,
+        "id": 2654,
         "nodeType": "ImportDirective",
-        "scope": 2856,
-        "sourceUnit": 2441,
-        "src": "67:42:22",
+        "scope": 2691,
+        "sourceUnit": 2276,
+        "src": "67:42:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IFeeWindow.sol",
+        "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/reporting/IFeeWindow.sol",
         "file": "./../reporting/IFeeWindow.sol",
-        "id": 2820,
+        "id": 2655,
         "nodeType": "ImportDirective",
-        "scope": 2856,
-        "sourceUnit": 2974,
-        "src": "110:39:22",
+        "scope": 2691,
+        "sourceUnit": 2809,
+        "src": "110:39:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -334,53 +334,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2821,
+              "id": 2656,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2748,
-              "src": "174:5:22",
+              "referencedDeclaration": 2583,
+              "src": "174:5:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$2748",
+                "typeIdentifier": "t_contract$_ERC20_$2583",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 2822,
+            "id": 2657,
             "nodeType": "InheritanceSpecifier",
-            "src": "174:5:22"
+            "src": "174:5:21"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2823,
+              "id": 2658,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2440,
-              "src": "181:13:22",
+              "referencedDeclaration": 2275,
+              "src": "181:13:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$2440",
+                "typeIdentifier": "t_contract$_Initializable_$2275",
                 "typeString": "contract Initializable"
               }
             },
-            "id": 2824,
+            "id": 2659,
             "nodeType": "InheritanceSpecifier",
-            "src": "181:13:22"
+            "src": "181:13:21"
           }
         ],
         "contractDependencies": [
-          2440,
-          2748,
-          2780
+          2275,
+          2583,
+          2615
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2855,
+        "id": 2690,
         "linearizedBaseContracts": [
-          2855,
-          2440,
-          2748,
-          2780
+          2690,
+          2275,
+          2583,
+          2615
         ],
         "name": "IFeeToken",
         "nodeType": "ContractDefinition",
@@ -388,7 +388,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2831,
+            "id": 2666,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -396,31 +396,31 @@
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2827,
+              "id": 2662,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2826,
+                  "id": 2661,
                   "name": "_feeWindow",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2831,
-                  "src": "221:21:22",
+                  "scope": 2666,
+                  "src": "221:21:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                    "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                     "typeString": "contract IFeeWindow"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2825,
+                    "id": 2660,
                     "name": "IFeeWindow",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2973,
-                    "src": "221:10:22",
+                    "referencedDeclaration": 2808,
+                    "src": "221:10:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                      "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                       "typeString": "contract IFeeWindow"
                     }
                   },
@@ -428,20 +428,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "220:23:22"
+              "src": "220:23:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2830,
+              "id": 2665,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2829,
+                  "id": 2664,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2831,
-                  "src": "260:4:22",
+                  "scope": 2666,
+                  "src": "260:4:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -449,10 +449,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2828,
+                    "id": 2663,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "260:4:22",
+                    "src": "260:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -462,10 +462,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "259:6:22"
+              "src": "259:6:21"
             },
-            "scope": 2855,
-            "src": "201:65:22",
+            "scope": 2690,
+            "src": "201:65:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -473,7 +473,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2836,
+            "id": 2671,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -481,38 +481,38 @@
             "name": "getFeeWindow",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2832,
+              "id": 2667,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "292:2:22"
+              "src": "292:2:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2835,
+              "id": 2670,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2834,
+                  "id": 2669,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2836,
-                  "src": "316:10:22",
+                  "scope": 2671,
+                  "src": "316:10:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                    "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                     "typeString": "contract IFeeWindow"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2833,
+                    "id": 2668,
                     "name": "IFeeWindow",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2973,
-                    "src": "316:10:22",
+                    "referencedDeclaration": 2808,
+                    "src": "316:10:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                      "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                       "typeString": "contract IFeeWindow"
                     }
                   },
@@ -520,10 +520,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "315:12:22"
+              "src": "315:12:21"
             },
-            "scope": 2855,
-            "src": "271:57:22",
+            "scope": 2690,
+            "src": "271:57:21",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -531,7 +531,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2845,
+            "id": 2680,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -539,16 +539,16 @@
             "name": "feeWindowBurn",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2841,
+              "id": 2676,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2838,
+                  "id": 2673,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2845,
-                  "src": "356:15:22",
+                  "scope": 2680,
+                  "src": "356:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -556,10 +556,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2837,
+                    "id": 2672,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "356:7:22",
+                    "src": "356:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -570,11 +570,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2840,
+                  "id": 2675,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2845,
-                  "src": "373:15:22",
+                  "scope": 2680,
+                  "src": "373:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -582,10 +582,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2839,
+                    "id": 2674,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "373:7:22",
+                    "src": "373:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -595,20 +595,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "355:34:22"
+              "src": "355:34:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2844,
+              "id": 2679,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2843,
+                  "id": 2678,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2845,
-                  "src": "406:4:22",
+                  "scope": 2680,
+                  "src": "406:4:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -616,10 +616,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2842,
+                    "id": 2677,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "406:4:22",
+                    "src": "406:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -629,10 +629,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "405:6:22"
+              "src": "405:6:21"
             },
-            "scope": 2855,
-            "src": "333:79:22",
+            "scope": 2690,
+            "src": "333:79:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -640,7 +640,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2854,
+            "id": 2689,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -648,16 +648,16 @@
             "name": "mintForReportingParticipant",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2850,
+              "id": 2685,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2847,
+                  "id": 2682,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2854,
-                  "src": "454:15:22",
+                  "scope": 2689,
+                  "src": "454:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -665,10 +665,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2846,
+                    "id": 2681,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "454:7:22",
+                    "src": "454:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -679,11 +679,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2849,
+                  "id": 2684,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2854,
-                  "src": "471:15:22",
+                  "scope": 2689,
+                  "src": "471:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -691,10 +691,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2848,
+                    "id": 2683,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "471:7:22",
+                    "src": "471:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -704,20 +704,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "453:34:22"
+              "src": "453:34:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2853,
+              "id": 2688,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2852,
+                  "id": 2687,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2854,
-                  "src": "504:4:22",
+                  "scope": 2689,
+                  "src": "504:4:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -725,10 +725,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2851,
+                    "id": 2686,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "504:4:22",
+                    "src": "504:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -738,33 +738,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "503:6:22"
+              "src": "503:6:21"
             },
-            "scope": 2855,
-            "src": "417:93:22",
+            "scope": 2690,
+            "src": "417:93:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2856,
-        "src": "152:360:22"
+        "scope": 2691,
+        "src": "152:360:21"
       }
     ],
-    "src": "0:512:22"
+    "src": "0:512:21"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IFeeToken.sol",
+    "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/reporting/IFeeToken.sol",
     "exportedSymbols": {
       "IFeeToken": [
-        2855
+        2690
       ]
     },
-    "id": 2856,
+    "id": 2691,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2817,
+        "id": 2652,
         "literals": [
           "solidity",
           "^",
@@ -772,38 +772,38 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:22"
+        "src": "0:24:21"
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20.sol",
+        "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/token/ERC20.sol",
         "file": "./../libraries/token/ERC20.sol",
-        "id": 2818,
+        "id": 2653,
         "nodeType": "ImportDirective",
-        "scope": 2856,
-        "sourceUnit": 2749,
-        "src": "26:40:22",
+        "scope": 2691,
+        "sourceUnit": 2584,
+        "src": "26:40:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/Initializable.sol",
+        "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/libraries/Initializable.sol",
         "file": "./../libraries/Initializable.sol",
-        "id": 2819,
+        "id": 2654,
         "nodeType": "ImportDirective",
-        "scope": 2856,
-        "sourceUnit": 2441,
-        "src": "67:42:22",
+        "scope": 2691,
+        "sourceUnit": 2276,
+        "src": "67:42:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IFeeWindow.sol",
+        "absolutePath": "/Users/jasperdegooijer/augurSetsTest/AugurSets/augur-sets/libraries/augur/source/contracts/reporting/IFeeWindow.sol",
         "file": "./../reporting/IFeeWindow.sol",
-        "id": 2820,
+        "id": 2655,
         "nodeType": "ImportDirective",
-        "scope": 2856,
-        "sourceUnit": 2974,
-        "src": "110:39:22",
+        "scope": 2691,
+        "sourceUnit": 2809,
+        "src": "110:39:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -813,53 +813,53 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2821,
+              "id": 2656,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2748,
-              "src": "174:5:22",
+              "referencedDeclaration": 2583,
+              "src": "174:5:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$2748",
+                "typeIdentifier": "t_contract$_ERC20_$2583",
                 "typeString": "contract ERC20"
               }
             },
-            "id": 2822,
+            "id": 2657,
             "nodeType": "InheritanceSpecifier",
-            "src": "174:5:22"
+            "src": "174:5:21"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2823,
+              "id": 2658,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2440,
-              "src": "181:13:22",
+              "referencedDeclaration": 2275,
+              "src": "181:13:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$2440",
+                "typeIdentifier": "t_contract$_Initializable_$2275",
                 "typeString": "contract Initializable"
               }
             },
-            "id": 2824,
+            "id": 2659,
             "nodeType": "InheritanceSpecifier",
-            "src": "181:13:22"
+            "src": "181:13:21"
           }
         ],
         "contractDependencies": [
-          2440,
-          2748,
-          2780
+          2275,
+          2583,
+          2615
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2855,
+        "id": 2690,
         "linearizedBaseContracts": [
-          2855,
-          2440,
-          2748,
-          2780
+          2690,
+          2275,
+          2583,
+          2615
         ],
         "name": "IFeeToken",
         "nodeType": "ContractDefinition",
@@ -867,7 +867,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2831,
+            "id": 2666,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -875,31 +875,31 @@
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2827,
+              "id": 2662,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2826,
+                  "id": 2661,
                   "name": "_feeWindow",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2831,
-                  "src": "221:21:22",
+                  "scope": 2666,
+                  "src": "221:21:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                    "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                     "typeString": "contract IFeeWindow"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2825,
+                    "id": 2660,
                     "name": "IFeeWindow",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2973,
-                    "src": "221:10:22",
+                    "referencedDeclaration": 2808,
+                    "src": "221:10:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                      "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                       "typeString": "contract IFeeWindow"
                     }
                   },
@@ -907,20 +907,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "220:23:22"
+              "src": "220:23:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2830,
+              "id": 2665,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2829,
+                  "id": 2664,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2831,
-                  "src": "260:4:22",
+                  "scope": 2666,
+                  "src": "260:4:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -928,10 +928,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2828,
+                    "id": 2663,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "260:4:22",
+                    "src": "260:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -941,10 +941,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "259:6:22"
+              "src": "259:6:21"
             },
-            "scope": 2855,
-            "src": "201:65:22",
+            "scope": 2690,
+            "src": "201:65:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -952,7 +952,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2836,
+            "id": 2671,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -960,38 +960,38 @@
             "name": "getFeeWindow",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2832,
+              "id": 2667,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "292:2:22"
+              "src": "292:2:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2835,
+              "id": 2670,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2834,
+                  "id": 2669,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2836,
-                  "src": "316:10:22",
+                  "scope": 2671,
+                  "src": "316:10:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                    "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                     "typeString": "contract IFeeWindow"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2833,
+                    "id": 2668,
                     "name": "IFeeWindow",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2973,
-                    "src": "316:10:22",
+                    "referencedDeclaration": 2808,
+                    "src": "316:10:21",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IFeeWindow_$2973",
+                      "typeIdentifier": "t_contract$_IFeeWindow_$2808",
                       "typeString": "contract IFeeWindow"
                     }
                   },
@@ -999,10 +999,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "315:12:22"
+              "src": "315:12:21"
             },
-            "scope": 2855,
-            "src": "271:57:22",
+            "scope": 2690,
+            "src": "271:57:21",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -1010,7 +1010,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2845,
+            "id": 2680,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1018,16 +1018,16 @@
             "name": "feeWindowBurn",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2841,
+              "id": 2676,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2838,
+                  "id": 2673,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2845,
-                  "src": "356:15:22",
+                  "scope": 2680,
+                  "src": "356:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1035,10 +1035,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2837,
+                    "id": 2672,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "356:7:22",
+                    "src": "356:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1049,11 +1049,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2840,
+                  "id": 2675,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2845,
-                  "src": "373:15:22",
+                  "scope": 2680,
+                  "src": "373:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1061,10 +1061,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2839,
+                    "id": 2674,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "373:7:22",
+                    "src": "373:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1074,20 +1074,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "355:34:22"
+              "src": "355:34:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2844,
+              "id": 2679,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2843,
+                  "id": 2678,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2845,
-                  "src": "406:4:22",
+                  "scope": 2680,
+                  "src": "406:4:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1095,10 +1095,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2842,
+                    "id": 2677,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "406:4:22",
+                    "src": "406:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1108,10 +1108,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "405:6:22"
+              "src": "405:6:21"
             },
-            "scope": 2855,
-            "src": "333:79:22",
+            "scope": 2690,
+            "src": "333:79:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -1119,7 +1119,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2854,
+            "id": 2689,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1127,16 +1127,16 @@
             "name": "mintForReportingParticipant",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2850,
+              "id": 2685,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2847,
+                  "id": 2682,
                   "name": "_target",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2854,
-                  "src": "454:15:22",
+                  "scope": 2689,
+                  "src": "454:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1144,10 +1144,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2846,
+                    "id": 2681,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "454:7:22",
+                    "src": "454:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -1158,11 +1158,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2849,
+                  "id": 2684,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2854,
-                  "src": "471:15:22",
+                  "scope": 2689,
+                  "src": "471:15:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1170,10 +1170,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2848,
+                    "id": 2683,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "471:7:22",
+                    "src": "471:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1183,20 +1183,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "453:34:22"
+              "src": "453:34:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 2853,
+              "id": 2688,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2852,
+                  "id": 2687,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2854,
-                  "src": "504:4:22",
+                  "scope": 2689,
+                  "src": "504:4:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1204,10 +1204,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2851,
+                    "id": 2686,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "504:4:22",
+                    "src": "504:4:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1217,20 +1217,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "503:6:22"
+              "src": "503:6:21"
             },
-            "scope": 2855,
-            "src": "417:93:22",
+            "scope": 2690,
+            "src": "417:93:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2856,
-        "src": "152:360:22"
+        "scope": 2691,
+        "src": "152:360:21"
       }
     ],
-    "src": "0:512:22"
+    "src": "0:512:21"
   },
   "compiler": {
     "name": "solc",
@@ -1238,7 +1238,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-07-22T13:06:58.164Z",
+  "updatedAt": "2019-07-22T15:25:21.367Z",
   "devdoc": {
     "methods": {}
   },
