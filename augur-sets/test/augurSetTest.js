@@ -1,4 +1,4 @@
-const Web3 = require("../node_modules/web3/types");
+const Web3 = require("web3");
 const augurSetAbi = require("../build/contracts/AugurSet").abi;
 const augurSetBytecode = require("../build/contracts/AugurSet").bytecode;
 const erc20Abi = require("../build/contracts/ERC20").abi;
@@ -7,7 +7,7 @@ const feeWindowAbi = require("../build/contracts/FeeWindow").abi;
 
 const createAugurMarket = require("../utils/createAugurMarket");
 const sendSignedTransaction = require("../utils/sendSignedTransaction")
-const { fromWei, toWei, toBN } = require('../node_modules/web3-utils/types');
+const { fromWei, toWei, toBN } = require('web3-utils');
 const {	PARITY_PORT, NUM_TICKS } = require("../constants");
 const {
 	COMPLETE_SETS,

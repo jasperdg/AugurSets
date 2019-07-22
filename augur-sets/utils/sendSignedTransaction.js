@@ -1,10 +1,10 @@
-const Tx = require("../node_modules/ethereumjs-tx/es5");
-const Web3 = require('../node_modules/web3/types');
+const Tx = require("ethereumjs-tx");
+const Web3 = require('node_modules');
 const transactionMinedAsync = require('./transactionMinedAsync');
 const { 
 	toHex,
 	toWei 
-} = require("../node_modules/web3-utils/types");
+} = require("web3-utils");
 
 
 const {	PARITY_PORT } = require("../constants.js");
