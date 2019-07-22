@@ -1,37 +1,42 @@
 # AugurSets
 
-DISCLAIMER: This README is outdated, up-to-date version will be uploaded by next week
-
-A protocol build atop of Augur that allows for the creation and trading of indexes of positions in Augur markets. 
+A protocol for tokenized indexes of positions in Augur markets.
 
 ## Getting Started
 
 These intstructions will get a copy of AugurSets running on your machine and will allow you to run the tests.
 
 ### Prerequisites
+To run this version of AugurSets you requires you to have [docker](https://www.docker.com/) [nodejs](https://nodejs.org/en/) and [truffle](https://www.trufflesuite.com/).
 
-We need to make sure we have [ganache-cli](https://github.com/trufflesuite/ganache-cli) & [Truffle](https://www.trufflesuite.com/) installed.
+#### Installing
+After installing all of the prerequisites we'll continue by getting a (very slightly) altered version of [augur-core](https://github.com/AugurProject/augur-core) running. This will run a local POA Ethereum blockchain with all the Augur contracts deployed and all contracts addresses needed logged.
 
-```
-npm i -g ganache-cli
-```
-```
-npm i -g truffle
-```
-
-### Installing
-
-Start by cloning AugurSets in your prefered directory if you haven't already.
+Start by cloning this directory if you haven't already:
 
 ```
 git clone https://github.com/jasperdg/AugurSets.git
 ```
 
-Then enter the directory and install all dependencies.
+Then checkout the augur-core directory:
 
 ```
-cd AugurSets && npm install
+cd AugurSets/augur-core
 ```
+
+Then start the POA parity chain by entering the following command (this will take a couple minutes):
+
+```
+npm run docker:run:integration:parity
+```
+
+#### Setup AugurSets
+Enter the AugurSets directory and install all of the dependencies:
+```
+cd ../augurSerts
+npm i
+```
+
 
 ## Running the tests
 

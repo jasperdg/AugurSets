@@ -1,7 +1,7 @@
-const Web3 = require('web3');
-const universeAbi = require("./../build/contracts/Universe").abi;
-const erc20Abi = require("./../build/contracts/ERC20").abi;
-const augurAbi = require("./../build/contracts/Augur").abi;
+const Web3 = require('../node_modules/web3/types');
+const universeAbi = require("../build/contracts/Universe").abi;
+const erc20Abi = require("../build/contracts/ERC20").abi;
+const augurAbi = require("../build/contracts/Augur").abi;
 const sendSignedTransaction = require("./sendSignedTransaction");
 const { PUB_KEY } = require("../.pvt");
 const {	PARITY_PORT, PARITY_PORT_WS } = require("../constants.js");
@@ -11,7 +11,7 @@ const {
 	CASH,
 } = require("../constants.js")[0];
 
-const { toWei, hexToNumberString } = require("web3-utils");
+const { toWei, hexToNumberString } = require("../node_modules/web3-utils/types");
 
 const web3 = new Web3(`http://localhost:${PARITY_PORT}`);
 const web3Ws = new Web3(`ws://localhost:${PARITY_PORT_WS}`);
