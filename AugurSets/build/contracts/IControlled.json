@@ -40,19 +40,19 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.22;\n\n\nimport './IController.sol';\nimport './libraries/token/ERC20Basic.sol';\n\n\ncontract IControlled {\n    function getController() public view returns (IController);\n    function setController(IController _controller) public returns(bool);\n}\n",
-  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
+  "sourcePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
   "ast": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
     "exportedSymbols": {
       "IControlled": [
-        4340
+        2228
       ]
     },
-    "id": 4341,
+    "id": 2229,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4325,
+        "id": 2213,
         "literals": [
           "solidity",
           "^",
@@ -60,27 +60,27 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:12"
+        "src": "0:24:10"
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
         "file": "./IController.sol",
-        "id": 4326,
+        "id": 2214,
         "nodeType": "ImportDirective",
-        "scope": 4341,
-        "sourceUnit": 4384,
-        "src": "27:27:12",
+        "scope": 2229,
+        "sourceUnit": 2272,
+        "src": "27:27:10",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20Basic.sol",
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20Basic.sol",
         "file": "./libraries/token/ERC20Basic.sol",
-        "id": 4327,
+        "id": 2215,
         "nodeType": "ImportDirective",
-        "scope": 4341,
-        "sourceUnit": 6197,
-        "src": "55:42:12",
+        "scope": 2229,
+        "sourceUnit": 2781,
+        "src": "55:42:10",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -90,9 +90,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4340,
+        "id": 2228,
         "linearizedBaseContracts": [
-          4340
+          2228
         ],
         "name": "IControlled",
         "nodeType": "ContractDefinition",
@@ -100,7 +100,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4332,
+            "id": 2220,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -108,38 +108,38 @@
             "name": "getController",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4328,
+              "id": 2216,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "149:2:12"
+              "src": "149:2:10"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4331,
+              "id": 2219,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4330,
+                  "id": 2218,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4332,
-                  "src": "173:11:12",
+                  "scope": 2220,
+                  "src": "173:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeIdentifier": "t_contract$_IController_$2271",
                     "typeString": "contract IController"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4329,
+                    "id": 2217,
                     "name": "IController",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 4383,
-                    "src": "173:11:12",
+                    "referencedDeclaration": 2271,
+                    "src": "173:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeIdentifier": "t_contract$_IController_$2271",
                       "typeString": "contract IController"
                     }
                   },
@@ -147,10 +147,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "172:13:12"
+              "src": "172:13:10"
             },
-            "scope": 4340,
-            "src": "127:59:12",
+            "scope": 2228,
+            "src": "127:59:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -158,7 +158,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4339,
+            "id": 2227,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -166,31 +166,31 @@
             "name": "setController",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4335,
+              "id": 2223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4334,
+                  "id": 2222,
                   "name": "_controller",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4339,
-                  "src": "214:23:12",
+                  "scope": 2227,
+                  "src": "214:23:10",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeIdentifier": "t_contract$_IController_$2271",
                     "typeString": "contract IController"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4333,
+                    "id": 2221,
                     "name": "IController",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 4383,
-                    "src": "214:11:12",
+                    "referencedDeclaration": 2271,
+                    "src": "214:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeIdentifier": "t_contract$_IController_$2271",
                       "typeString": "contract IController"
                     }
                   },
@@ -198,20 +198,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "213:25:12"
+              "src": "213:25:10"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4338,
+              "id": 2226,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4337,
+                  "id": 2225,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4339,
-                  "src": "254:4:12",
+                  "scope": 2227,
+                  "src": "254:4:10",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -219,10 +219,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 4336,
+                    "id": 2224,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "254:4:12",
+                    "src": "254:4:10",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -232,33 +232,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "253:6:12"
+              "src": "253:6:10"
             },
-            "scope": 4340,
-            "src": "191:69:12",
+            "scope": 2228,
+            "src": "191:69:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 4341,
-        "src": "100:162:12"
+        "scope": 2229,
+        "src": "100:162:10"
       }
     ],
-    "src": "0:263:12"
+    "src": "0:263:10"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
     "exportedSymbols": {
       "IControlled": [
-        4340
+        2228
       ]
     },
-    "id": 4341,
+    "id": 2229,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4325,
+        "id": 2213,
         "literals": [
           "solidity",
           "^",
@@ -266,27 +266,27 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:12"
+        "src": "0:24:10"
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
         "file": "./IController.sol",
-        "id": 4326,
+        "id": 2214,
         "nodeType": "ImportDirective",
-        "scope": 4341,
-        "sourceUnit": 4384,
-        "src": "27:27:12",
+        "scope": 2229,
+        "sourceUnit": 2272,
+        "src": "27:27:10",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20Basic.sol",
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20Basic.sol",
         "file": "./libraries/token/ERC20Basic.sol",
-        "id": 4327,
+        "id": 2215,
         "nodeType": "ImportDirective",
-        "scope": 4341,
-        "sourceUnit": 6197,
-        "src": "55:42:12",
+        "scope": 2229,
+        "sourceUnit": 2781,
+        "src": "55:42:10",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -296,9 +296,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4340,
+        "id": 2228,
         "linearizedBaseContracts": [
-          4340
+          2228
         ],
         "name": "IControlled",
         "nodeType": "ContractDefinition",
@@ -306,7 +306,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4332,
+            "id": 2220,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -314,38 +314,38 @@
             "name": "getController",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4328,
+              "id": 2216,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "149:2:12"
+              "src": "149:2:10"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4331,
+              "id": 2219,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4330,
+                  "id": 2218,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4332,
-                  "src": "173:11:12",
+                  "scope": 2220,
+                  "src": "173:11:10",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeIdentifier": "t_contract$_IController_$2271",
                     "typeString": "contract IController"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4329,
+                    "id": 2217,
                     "name": "IController",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 4383,
-                    "src": "173:11:12",
+                    "referencedDeclaration": 2271,
+                    "src": "173:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeIdentifier": "t_contract$_IController_$2271",
                       "typeString": "contract IController"
                     }
                   },
@@ -353,10 +353,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "172:13:12"
+              "src": "172:13:10"
             },
-            "scope": 4340,
-            "src": "127:59:12",
+            "scope": 2228,
+            "src": "127:59:10",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -364,7 +364,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4339,
+            "id": 2227,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -372,31 +372,31 @@
             "name": "setController",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4335,
+              "id": 2223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4334,
+                  "id": 2222,
                   "name": "_controller",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4339,
-                  "src": "214:23:12",
+                  "scope": 2227,
+                  "src": "214:23:10",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeIdentifier": "t_contract$_IController_$2271",
                     "typeString": "contract IController"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4333,
+                    "id": 2221,
                     "name": "IController",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 4383,
-                    "src": "214:11:12",
+                    "referencedDeclaration": 2271,
+                    "src": "214:11:10",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeIdentifier": "t_contract$_IController_$2271",
                       "typeString": "contract IController"
                     }
                   },
@@ -404,20 +404,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "213:25:12"
+              "src": "213:25:10"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4338,
+              "id": 2226,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4337,
+                  "id": 2225,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4339,
-                  "src": "254:4:12",
+                  "scope": 2227,
+                  "src": "254:4:10",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -425,10 +425,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 4336,
+                    "id": 2224,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "254:4:12",
+                    "src": "254:4:10",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -438,20 +438,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "253:6:12"
+              "src": "253:6:10"
             },
-            "scope": 4340,
-            "src": "191:69:12",
+            "scope": 2228,
+            "src": "191:69:10",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 4341,
-        "src": "100:162:12"
+        "scope": 2229,
+        "src": "100:162:10"
       }
     ],
-    "src": "0:263:12"
+    "src": "0:263:10"
   },
   "compiler": {
     "name": "solc",
@@ -459,7 +459,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-07-15T12:03:29.483Z",
+  "updatedAt": "2019-07-22T13:06:58.156Z",
   "devdoc": {
     "methods": {}
   },

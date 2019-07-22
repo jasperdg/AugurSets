@@ -1,24 +1,24 @@
 {
   "contractName": "IClaimTradingProceeds",
   "abi": [],
-  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820a4675ffb3c18a065f8a91933651946204cc3a0ebb3e9416cd746266bf4f6c98f0029",
-  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820a4675ffb3c18a065f8a91933651946204cc3a0ebb3e9416cd746266bf4f6c98f0029",
-  "sourceMap": "28:35:61:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:35:61;;;;;;;",
-  "deployedSourceMap": "28:35:61:-;;;;;",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a72305820d7c01d93dd161b5cec5efd5fff235efc330b0d73bccaede7e69dd5debbed4d9f0029",
+  "deployedBytecode": "0x6080604052600080fd00a165627a7a72305820d7c01d93dd161b5cec5efd5fff235efc330b0d73bccaede7e69dd5debbed4d9f0029",
+  "sourceMap": "28:35:33:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:35:33;;;;;;;",
+  "deployedSourceMap": "28:35:33:-;;;;;",
   "source": "pragma solidity ^0.4.22;\n\n\n\ncontract IClaimTradingProceeds {\n\n}\n",
-  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
+  "sourcePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
   "ast": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
     "exportedSymbols": {
       "IClaimTradingProceeds": [
-        13306
+        4674
       ]
     },
-    "id": 13307,
+    "id": 4675,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13305,
+        "id": 4673,
         "literals": [
           "solidity",
           "^",
@@ -26,7 +26,7 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:61"
+        "src": "0:24:33"
       },
       {
         "baseContracts": [],
@@ -34,31 +34,31 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 13306,
+        "id": 4674,
         "linearizedBaseContracts": [
-          13306
+          4674
         ],
         "name": "IClaimTradingProceeds",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 13307,
-        "src": "28:35:61"
+        "scope": 4675,
+        "src": "28:35:33"
       }
     ],
-    "src": "0:64:61"
+    "src": "0:64:33"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/trading/IClaimTradingProceeds.sol",
     "exportedSymbols": {
       "IClaimTradingProceeds": [
-        13306
+        4674
       ]
     },
-    "id": 13307,
+    "id": 4675,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13305,
+        "id": 4673,
         "literals": [
           "solidity",
           "^",
@@ -66,7 +66,7 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:61"
+        "src": "0:24:33"
       },
       {
         "baseContracts": [],
@@ -74,18 +74,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 13306,
+        "id": 4674,
         "linearizedBaseContracts": [
-          13306
+          4674
         ],
         "name": "IClaimTradingProceeds",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 13307,
-        "src": "28:35:61"
+        "scope": 4675,
+        "src": "28:35:33"
       }
     ],
-    "src": "0:64:61"
+    "src": "0:64:33"
   },
   "compiler": {
     "name": "solc",
@@ -93,7 +93,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-07-15T12:03:29.548Z",
+  "updatedAt": "2019-07-22T13:06:58.156Z",
   "devdoc": {
     "methods": {}
   },

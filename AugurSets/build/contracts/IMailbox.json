@@ -44,19 +44,19 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.22;\n\nimport './../reporting/IMarket.sol';\n\n\ncontract IMailbox {\n    function initialize(address _owner, IMarket _market) public returns (bool);\n    function depositEther() public payable returns (bool);\n}\n",
-  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMailbox.sol",
+  "sourcePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IMailbox.sol",
   "ast": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMailbox.sol",
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IMailbox.sol",
     "exportedSymbols": {
       "IMailbox": [
-        7532
+        2991
       ]
     },
-    "id": 7533,
+    "id": 2992,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7516,
+        "id": 2975,
         "literals": [
           "solidity",
           "^",
@@ -64,16 +64,16 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:49"
+        "src": "0:24:24"
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMarket.sol",
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IMarket.sol",
         "file": "./../reporting/IMarket.sol",
-        "id": 7517,
+        "id": 2976,
         "nodeType": "ImportDirective",
-        "scope": 7533,
-        "sourceUnit": 7720,
-        "src": "26:36:49",
+        "scope": 2992,
+        "sourceUnit": 3179,
+        "src": "26:36:24",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -83,9 +83,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 7532,
+        "id": 2991,
         "linearizedBaseContracts": [
-          7532
+          2991
         ],
         "name": "IMailbox",
         "nodeType": "ContractDefinition",
@@ -93,7 +93,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 7526,
+            "id": 2985,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -101,16 +101,16 @@
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7522,
+              "id": 2981,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7519,
+                  "id": 2978,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7526,
-                  "src": "109:14:49",
+                  "scope": 2985,
+                  "src": "109:14:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -118,10 +118,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 7518,
+                    "id": 2977,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "109:7:49",
+                    "src": "109:7:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -132,26 +132,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 7521,
+                  "id": 2980,
                   "name": "_market",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7526,
-                  "src": "125:15:49",
+                  "scope": 2985,
+                  "src": "125:15:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IMarket_$7719",
+                    "typeIdentifier": "t_contract$_IMarket_$3178",
                     "typeString": "contract IMarket"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7520,
+                    "id": 2979,
                     "name": "IMarket",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7719,
-                    "src": "125:7:49",
+                    "referencedDeclaration": 3178,
+                    "src": "125:7:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeIdentifier": "t_contract$_IMarket_$3178",
                       "typeString": "contract IMarket"
                     }
                   },
@@ -159,20 +159,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "108:33:49"
+              "src": "108:33:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7525,
+              "id": 2984,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7524,
+                  "id": 2983,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7526,
-                  "src": "158:4:49",
+                  "scope": 2985,
+                  "src": "158:4:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -180,10 +180,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7523,
+                    "id": 2982,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "158:4:49",
+                    "src": "158:4:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -193,10 +193,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "157:6:49"
+              "src": "157:6:24"
             },
-            "scope": 7532,
-            "src": "89:75:49",
+            "scope": 2991,
+            "src": "89:75:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -204,7 +204,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 7531,
+            "id": 2990,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -212,23 +212,23 @@
             "name": "depositEther",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7527,
+              "id": 2986,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "190:2:49"
+              "src": "190:2:24"
             },
             "payable": true,
             "returnParameters": {
-              "id": 7530,
+              "id": 2989,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7529,
+                  "id": 2988,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7531,
-                  "src": "217:4:49",
+                  "scope": 2990,
+                  "src": "217:4:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -236,10 +236,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7528,
+                    "id": 2987,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "217:4:49",
+                    "src": "217:4:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -249,33 +249,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "216:6:49"
+              "src": "216:6:24"
             },
-            "scope": 7532,
-            "src": "169:54:49",
+            "scope": 2991,
+            "src": "169:54:24",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7533,
-        "src": "65:160:49"
+        "scope": 2992,
+        "src": "65:160:24"
       }
     ],
-    "src": "0:226:49"
+    "src": "0:226:24"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMailbox.sol",
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IMailbox.sol",
     "exportedSymbols": {
       "IMailbox": [
-        7532
+        2991
       ]
     },
-    "id": 7533,
+    "id": 2992,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 7516,
+        "id": 2975,
         "literals": [
           "solidity",
           "^",
@@ -283,16 +283,16 @@
           ".22"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:49"
+        "src": "0:24:24"
       },
       {
-        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMarket.sol",
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/reporting/IMarket.sol",
         "file": "./../reporting/IMarket.sol",
-        "id": 7517,
+        "id": 2976,
         "nodeType": "ImportDirective",
-        "scope": 7533,
-        "sourceUnit": 7720,
-        "src": "26:36:49",
+        "scope": 2992,
+        "sourceUnit": 3179,
+        "src": "26:36:24",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -302,9 +302,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 7532,
+        "id": 2991,
         "linearizedBaseContracts": [
-          7532
+          2991
         ],
         "name": "IMailbox",
         "nodeType": "ContractDefinition",
@@ -312,7 +312,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 7526,
+            "id": 2985,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -320,16 +320,16 @@
             "name": "initialize",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7522,
+              "id": 2981,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7519,
+                  "id": 2978,
                   "name": "_owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7526,
-                  "src": "109:14:49",
+                  "scope": 2985,
+                  "src": "109:14:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -337,10 +337,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 7518,
+                    "id": 2977,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "109:7:49",
+                    "src": "109:7:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -351,26 +351,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 7521,
+                  "id": 2980,
                   "name": "_market",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7526,
-                  "src": "125:15:49",
+                  "scope": 2985,
+                  "src": "125:15:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IMarket_$7719",
+                    "typeIdentifier": "t_contract$_IMarket_$3178",
                     "typeString": "contract IMarket"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 7520,
+                    "id": 2979,
                     "name": "IMarket",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 7719,
-                    "src": "125:7:49",
+                    "referencedDeclaration": 3178,
+                    "src": "125:7:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeIdentifier": "t_contract$_IMarket_$3178",
                       "typeString": "contract IMarket"
                     }
                   },
@@ -378,20 +378,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "108:33:49"
+              "src": "108:33:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 7525,
+              "id": 2984,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7524,
+                  "id": 2983,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7526,
-                  "src": "158:4:49",
+                  "scope": 2985,
+                  "src": "158:4:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -399,10 +399,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7523,
+                    "id": 2982,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "158:4:49",
+                    "src": "158:4:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -412,10 +412,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "157:6:49"
+              "src": "157:6:24"
             },
-            "scope": 7532,
-            "src": "89:75:49",
+            "scope": 2991,
+            "src": "89:75:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -423,7 +423,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 7531,
+            "id": 2990,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -431,23 +431,23 @@
             "name": "depositEther",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 7527,
+              "id": 2986,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "190:2:49"
+              "src": "190:2:24"
             },
             "payable": true,
             "returnParameters": {
-              "id": 7530,
+              "id": 2989,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 7529,
+                  "id": 2988,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 7531,
-                  "src": "217:4:49",
+                  "scope": 2990,
+                  "src": "217:4:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -455,10 +455,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 7528,
+                    "id": 2987,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "217:4:49",
+                    "src": "217:4:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -468,20 +468,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "216:6:49"
+              "src": "216:6:24"
             },
-            "scope": 7532,
-            "src": "169:54:49",
+            "scope": 2991,
+            "src": "169:54:24",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 7533,
-        "src": "65:160:49"
+        "scope": 2992,
+        "src": "65:160:24"
       }
     ],
-    "src": "0:226:49"
+    "src": "0:226:24"
   },
   "compiler": {
     "name": "solc",
@@ -489,7 +489,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-07-15T12:03:29.510Z",
+  "updatedAt": "2019-07-22T13:06:58.159Z",
   "devdoc": {
     "methods": {}
   },

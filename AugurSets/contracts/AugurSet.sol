@@ -5,17 +5,8 @@ import "./OutcomeIndexToken.sol";
 
 import "./../libraries/0x/contracts/erc20/contracts/src/MintableERC20Token.sol";
 
-import "./../libraries/augur/source/contracts/trading/IShareToken.sol";
 import "./../libraries/augur/source/contracts/reporting/IMarket.sol";
-
-import "./../libraries/augur/source/contracts/TimeControlled.sol";
-import "./../libraries/augur/source/contracts/Augur.sol";
-import "./../libraries/augur/source/contracts/reporting/Market.sol";
-import "./../libraries/augur/source/contracts/reporting/Reporting.sol";
-import "./../libraries/augur/source/contracts/reporting/IUniverse.sol";
-
-import "./../libraries/augur/source/contracts/reporting/Universe.sol";
-import "./../libraries/augur/source/contracts/reporting/FeeWindow.sol";
+import "./../libraries/augur/source/contracts/trading/IShareToken.sol";
 import "./../libraries/augur/source/contracts/trading/CompleteSets.sol";
 import "./../libraries/augur/source/contracts/trading/ICash.sol";
 import "./../libraries/augur/source/contracts/trading/ClaimTradingProceeds.sol";
@@ -33,11 +24,11 @@ contract AugurSet is MintableERC20Token {
 	uint256 NUM_TICKS = 10000;
 
 	mapping(address => uint256) marketsToWeight;
-	uint256[] internal payoutDistribution;
-
 	OutcomeIndexToken[] public outcomeIndexTokens;
 	IMarket[] markets;
 	IShareToken[][] indexes;
+	
+	uint256[] internal payoutDistribution;
 	bool augurSetFinalized = false;
 
 	constructor (
@@ -51,9 +42,10 @@ contract AugurSet is MintableERC20Token {
 	)  
 	public 
 	{
-		// For each market there needs to be a decision on how weight it carries
 		require(_markets.length == _weights.length);
+		// Make sure all weights add up to 100
 		require(validateWeights(_weights));
+		// Make sure all markets are within the same universe
 		require(validateMarketUniverses(_markets));
 
 		for (uint256 outcome = 0; outcome < _numOutcomes; outcome++) {
@@ -87,27 +79,30 @@ contract AugurSet is MintableERC20Token {
 		markets = _markets;
 	}
 
-	function () payable {}
+	// Needs to have a payable function to receive Ether on payouts, checks if the sender is the Cash contract.
+	function () public payable {
+		require(msg.sender == address(cash));
+	}
 
 	function buyCompleteSet()
 	public
 	payable {
-		require(msg.value > 0);
+		require(msg.value > NUM_TICKS);
 		require(indexMarketsFinalized() == false);
 
+		// Because NUM_TICKS are into play there sometimes is dust leftover after purchasing shares, keep track of the actual ether spend so that the dust can be returned to the sender. 
 		uint256 totalSharesBought = 0;
 		// Buy a complete set of shares for each market
 		for (uint256 i = 0; i < markets.length; i++) {
-		// Calculate the amount of shares that have to be bought 
-			uint256 weightedAmount = msg.value.mul(marketsToWeight[markets[i]]).div(100);
-			uint256 totalSharesToBuy = weightedAmount.div(markets[i].getNumTicks());
-			totalSharesBought = totalSharesBought.add(totalSharesToBuy);
-			require(weightedAmount >= markets[i].getNumTicks());
-			completeSets.publicBuyCompleteSets.value(weightedAmount)(markets[i], totalSharesToBuy);
+			// Calculate the weighted amount of shares that need to be bought by the 
+			uint256 weightedAmountInEth = msg.value.mul(marketsToWeight[markets[i]]).div(100);
+			uint256 weightedAmountInAttoEth = weightedAmountInEth.div(markets[i].getNumTicks());
+			totalSharesBought = totalSharesBought.add(weightedAmountInAttoEth);
+			require(weightedAmountInEth >= markets[i].getNumTicks());
+			completeSets.publicBuyCompleteSets.value(weightedAmountInEth)(markets[i], weightedAmountInAttoEth);
 		}
 		// For each existing index token mint the amount in eth for the sender
 		for (uint256 x = 0; x < outcomeIndexTokens.length; x++){
-
 			outcomeIndexTokens[x].mint(msg.sender, totalSharesBought);
 		}
 
@@ -142,6 +137,7 @@ contract AugurSet is MintableERC20Token {
 		augurSetFinalized = true;
 	}
 
+	// Calculates weighted payout distribution
 	function calculatePayoutDistribution()
 	private 
 	{
@@ -159,6 +155,7 @@ contract AugurSet is MintableERC20Token {
 		}
 	}
 
+	// Calculate a flat fee per outcome
 	function calculateFees(uint256 proceeds) 
 	internal 
 	returns(uint256) 
@@ -172,6 +169,7 @@ contract AugurSet is MintableERC20Token {
 		return flatFee;
 	}
 
+	// Distributes a users proceeds.
 	function claimProceeds() 
 	public 
 	{
@@ -192,6 +190,7 @@ contract AugurSet is MintableERC20Token {
 		msg.sender.transfer(totalProceeds);
 	}
 
+	// Returns an array representing the payout distribution
 	function getPayoutDistribution() 
 	public
 	view 
@@ -200,6 +199,7 @@ contract AugurSet is MintableERC20Token {
 		return payoutDistribution;
 	}
 
+	// Returns true if an array of markets are all active in the same universe.
 	function validateMarketUniverses(IMarket[] _markets) 
 	private 
 	view 
@@ -213,6 +213,7 @@ contract AugurSet is MintableERC20Token {
 		return true;
 	}
 
+	// Returns true if an array of integers adds up to 100
 	function validateWeights(uint256[] _weights) 
 	private 
 	view 
@@ -225,7 +226,7 @@ contract AugurSet is MintableERC20Token {
 		return totalWeight == 100;
 	}
 		
-
+	// Returns the set's balance of a certain outcome within a market
 	function getMarketBalance(
 		uint256 _outcome,
 		IMarket _market

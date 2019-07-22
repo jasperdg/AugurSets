@@ -8,7 +8,7 @@ const feeWindowAbi = require("./../build/contracts/FeeWindow").abi;
 const createAugurMarket = require("../utils/createAugurMarket");
 const sendSignedTransaction = require("../utils/sendSignedTransaction")
 const { fromWei, toWei, toBN } = require('web3-utils');
-const {	PARITY_PORT, NUM_TICKS, NULL_ADDRESS } = require("../constants");
+const {	PARITY_PORT, NUM_TICKS } = require("../constants");
 const {
 	COMPLETE_SETS,
 	CASH,
@@ -31,13 +31,10 @@ contract('AugurSets', () => {
 		"Will the We Company have more than 14000 employees by 2020, according do LinkedIn?",
 		"Will the We Company launch We Live outside of the U.S. by 2020?",
 		"Will CEO, Adam Neumann retain his position by 2020?",
-		"Will CEO, Adam Neumann retain his position by 2021?"
-
 	];
-	const weights = [60, 20, 10, 10];
+	const weights = [60, 20, 20];
 	const outcomes = 2;
 
-	// TODO: set timeStamp to now
 	it('resets timestamp to current day and time', async () => {
 		await reportingUtils.setTimestamp(toBN(Math.round(new Date().getTime() / 1000)));
 	});
@@ -95,7 +92,7 @@ contract('AugurSets', () => {
 		}
 	});
 
-	it('set timestamp to market end', async () => {
+	it('setstimestamp to market end', async () => {
 		marketContracts = marketAddresses.map(market => new web3.eth.Contract(marketAbi, market));
 		const marketEndTime = await marketContracts[marketAddresses.length - 1].methods.getDesignatedReportingEndTime.call();
 		await reportingUtils.setTimestamp(marketEndTime.add(1));
@@ -122,17 +119,19 @@ contract('AugurSets', () => {
 		assert.equal(marketsFinalized.indexOf(false), -1);
 	});
 
-	it('AugurSet returns that all markets are finalized', async () => {
+	it('checks if all markets are finalized', async () => {
 		const augurSetMarketsFinalized = await augurSet.methods.indexMarketsFinalized.call();
 		assert.equal(augurSetMarketsFinalized, true);
 	});
 
-	it('Claims all AugurSet winnings', async () => {
+	it('sets timestamp three days and one second from when the market was finalized so that proceeds can be claimed', async () => {
 		const threeDaysAndOneSecond = 60 * 60 * 24 * 3 + 1;
 		const reportingEndTime = await marketContracts[marketContracts.length - 1].methods.getFinalizationTime.call()
 		const setTime = await reportingUtils.setTimestamp(reportingEndTime.add(threeDaysAndOneSecond));
 		assert.equal(setTime.status, true);
+	});
 
+	it('claims all AugurSet winnings', async () => {
 		const balanceBeforeClaim = fromWei((await web3.eth.getBalance(augurSet.address)));
 		const nonce = await web3.eth.getTransactionCount(PUB_KEY);
 		const data = augurSet.methods.finalize.encodeABI();
