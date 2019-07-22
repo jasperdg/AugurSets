@@ -1,9 +1,8 @@
 const Tx = require("ethereumjs-tx");
-const Web3 = require('node_modules');
+const Web3 = require('web3');
 const transactionMinedAsync = require('./transactionMinedAsync');
 const { 
 	toHex,
-	toWei 
 } = require("web3-utils");
 
 
