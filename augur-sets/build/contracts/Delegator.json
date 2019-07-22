@@ -1,0 +1,1079 @@
+{
+  "contractName": "Delegator",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_controller",
+          "type": "address"
+        }
+      ],
+      "name": "setController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "controllerLookupName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_controller",
+          "type": "address"
+        },
+        {
+          "name": "_controllerLookupName",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506040516040806104468339810180604052810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060018160001916905550505061036d806100d96000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461018757806392eefe9b146101de578063bef72fa214610239575b60008060010260015460001916141561006f57610184565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f39ec1f76001546040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b505050506040513d602081101561013357600080fd5b81019080805190602001909291905050509050604051601f19601f36011680820160405236600083376000803684865af4806000811461017f576040513d81016040523d6000823e3d81f35b600080fd5b50005b34801561019357600080fd5b5061019c61026c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ea57600080fd5b5061021f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610295565b604051808215151515815260200191505060405180910390f35b34801561024557600080fd5b5061024e61033b565b60405180826000191660001916815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060019050919050565b600154815600a165627a7a723058202e512e870db6d069790c0e290c4f3ba94fb16fb97b62f0de6095bd5ff18551c60029",
+  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461018757806392eefe9b146101de578063bef72fa214610239575b60008060010260015460001916141561006f57610184565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f39ec1f76001546040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b505050506040513d602081101561013357600080fd5b81019080805190602001909291905050509050604051601f19601f36011680820160405236600083376000803684865af4806000811461017f576040513d81016040523d6000823e3d81f35b600080fd5b50005b34801561019357600080fd5b5061019c61026c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ea57600080fd5b5061021f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610295565b604051808215151515815260200191505060405180910390f35b34801561024557600080fd5b5061024e61033b565b60405180826000191660001916815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060019050919050565b600154815600a165627a7a723058202e512e870db6d069790c0e290c4f3ba94fb16fb97b62f0de6095bd5ff18551c60029",
+  "sourceMap": "106:2087:29:-;;;151:177;8:9:-1;5:2;;;30:1;27;20:12;5:2;151:177:29;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;795:10:9;770;;:36;;;;;;;;;;;;;;;;;;256:11:29;243:10;;:24;;;;;;;;;;;;;;;;;;300:21;277:20;:44;;;;;;;151:177;;106:2087;;;;;;",
+  "deployedSourceMap": "106:2087:29:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;574:15;484:1;460:25;;:20;;:25;;;;456:62;;;501:7;;456:62;592:10;;;;;;;;;;;:17;;;610:20;;592:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;592:39:29;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;592:39:29;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;592:39:29;;;;;;;;;;;;;;;;574:57;;788:4;782:11;988:4;984:9;977:4;963:12;959:23;955:39;1194:5;1171:21;1167:33;1161:4;1154:47;1332:12;1327:3;1304:21;1291:54;1493:1;1490;1476:12;1453:21;1444:7;1439:3;1426:69;1515:7;1540:1;1535:97;;;;1783:4;1777:11;2004:14;1979:23;1975:44;1969:4;1962:58;2082:14;2077:3;2052:23;2037:60;2146:14;2121:23;2114:47;1535:97;1616:1;1614;1607:11;651:1534;;106:2087;819:92:9;;8:9:-1;5:2;;;30:1;27;20:12;5:2;819:92:9;;;;;;;;;;;;;;;;;;;;;;;;;;;917:152;;8:9:-1;5:2;;;30:1;27;20:12;5:2;917:152:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;105:35:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;105:35:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;819:92:9;864:11;894:10;;;;;;;;;;;887:17;;819:92;:::o;917:152::-;1001:4;513:10;;;;;;;;;;;486:37;;498:10;486:37;;;478:46;;;;;;;;1030:11;1017:10;;:24;;;;;;;;;;;;;;;;;;1058:4;1051:11;;917:152;;;:::o;105:35:28:-;;;;:::o",
+  "source": "pragma solidity ^0.4.22;\n\n\nimport './../IController.sol';\nimport './../libraries/DelegationTarget.sol';\n\n\ncontract Delegator is DelegationTarget {\n    function Delegator(IController _controller, bytes32 _controllerLookupName) public {\n        controller = _controller;\n        controllerLookupName = _controllerLookupName;\n    }\n\n    function() external payable {\n        // Do nothing if we haven't properly set up the delegator to delegate calls\n        if (controllerLookupName == 0) {\n            return;\n        }\n\n        // Get the delegation target contract\n        address _target = controller.lookup(controllerLookupName);\n\n        assembly {\n            //0x40 is the address where the next free memory slot is stored in Solidity\n            let _calldataMemoryOffset := mload(0x40)\n            // new \"memory end\" including padding. The bitwise operations here ensure we get rounded up to the nearest 32 byte boundary\n            let _size := and(add(calldatasize, 0x1f), not(0x1f))\n            // Update the pointer at 0x40 to point at new free memory location so any theoretical allocation doesn't stomp our memory in this call\n            mstore(0x40, add(_calldataMemoryOffset, _size))\n            // Copy method signature and parameters of this call into memory\n            calldatacopy(_calldataMemoryOffset, 0x0, calldatasize)\n            // Call the actual method via delegation\n            let _retval := delegatecall(gas, _target, _calldataMemoryOffset, calldatasize, 0, 0)\n            switch _retval\n            case 0 {\n                // 0 == it threw, so we revert\n                revert(0,0)\n            } default {\n                // If the call succeeded return the return data from the delegate call\n                let _returndataMemoryOffset := mload(0x40)\n                // Update the pointer at 0x40 again to point at new free memory location so any theoretical allocation doesn't stomp our memory in this call\n                mstore(0x40, add(_returndataMemoryOffset, returndatasize))\n                returndatacopy(_returndataMemoryOffset, 0x0, returndatasize)\n                return(_returndataMemoryOffset, returndatasize)\n            }\n        }\n    }\n}\n",
+  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+  "ast": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+    "exportedSymbols": {
+      "Delegator": [
+        5140
+      ]
+    },
+    "id": 5141,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5101,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:29"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./../IController.sol",
+        "id": 5102,
+        "nodeType": "ImportDirective",
+        "scope": 5141,
+        "sourceUnit": 4384,
+        "src": "27:30:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/DelegationTarget.sol",
+        "file": "./../libraries/DelegationTarget.sol",
+        "id": 5103,
+        "nodeType": "ImportDirective",
+        "scope": 5141,
+        "sourceUnit": 5100,
+        "src": "58:45:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 5104,
+              "name": "DelegationTarget",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5099,
+              "src": "128:16:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DelegationTarget_$5099",
+                "typeString": "contract DelegationTarget"
+              }
+            },
+            "id": 5105,
+            "nodeType": "InheritanceSpecifier",
+            "src": "128:16:29"
+          }
+        ],
+        "contractDependencies": [
+          3436,
+          4340,
+          5099
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5140,
+        "linearizedBaseContracts": [
+          5140,
+          5099,
+          3436,
+          4340
+        ],
+        "name": "Delegator",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 5120,
+              "nodeType": "Block",
+              "src": "233:95:29",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 5114,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 5112,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3339,
+                      "src": "243:10:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$4383",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 5113,
+                      "name": "_controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5107,
+                      "src": "256:11:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$4383",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "src": "243:24:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "id": 5115,
+                  "nodeType": "ExpressionStatement",
+                  "src": "243:24:29"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 5118,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 5116,
+                      "name": "controllerLookupName",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5098,
+                      "src": "277:20:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 5117,
+                      "name": "_controllerLookupName",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5109,
+                      "src": "300:21:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "277:44:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 5119,
+                  "nodeType": "ExpressionStatement",
+                  "src": "277:44:29"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 5121,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "Delegator",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5107,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5121,
+                  "src": "170:23:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 5106,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4383,
+                    "src": "170:11:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5109,
+                  "name": "_controllerLookupName",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5121,
+                  "src": "195:29:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5108,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "195:7:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "169:56:29"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 5111,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "233:0:29"
+            },
+            "scope": 5140,
+            "src": "151:177:29",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 5138,
+              "nodeType": "Block",
+              "src": "362:1829:29",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    },
+                    "id": 5126,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 5124,
+                      "name": "controllerLookupName",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5098,
+                      "src": "460:20:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 5125,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "484:1:29",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "460:25:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 5129,
+                  "nodeType": "IfStatement",
+                  "src": "456:62:29",
+                  "trueBody": {
+                    "id": 5128,
+                    "nodeType": "Block",
+                    "src": "487:31:29",
+                    "statements": [
+                      {
+                        "expression": null,
+                        "functionReturnParameters": 5123,
+                        "id": 5127,
+                        "nodeType": "Return",
+                        "src": "501:7:29"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "assignments": [
+                    5131
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5131,
+                      "name": "_target",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5139,
+                      "src": "574:15:29",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 5130,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "574:7:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5136,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 5134,
+                        "name": "controllerLookupName",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5098,
+                        "src": "610:20:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 5132,
+                        "name": "controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3339,
+                        "src": "592:10:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        }
+                      },
+                      "id": 5133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "lookup",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4357,
+                      "src": "592:17:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                        "typeString": "function (bytes32) view external returns (address)"
+                      }
+                    },
+                    "id": 5135,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "592:39:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "574:57:29"
+                },
+                {
+                  "externalReferences": [
+                    {
+                      "_target": {
+                        "declaration": 5131,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "1444:7:29",
+                        "valueSize": 1
+                      }
+                    }
+                  ],
+                  "id": 5137,
+                  "nodeType": "InlineAssembly",
+                  "operations": "{\n    let _calldataMemoryOffset := mload(0x40)\n    let _size := and(add(calldatasize(), 0x1f), not(0x1f))\n    mstore(0x40, add(_calldataMemoryOffset, _size))\n    calldatacopy(_calldataMemoryOffset, 0x0, calldatasize())\n    let _retval := delegatecall(gas(), _target, _calldataMemoryOffset, calldatasize(), 0, 0)\n    switch _retval\n    case 0 {\n        revert(0, 0)\n    }\n    default {\n        let _returndataMemoryOffset := mload(0x40)\n        mstore(0x40, add(_returndataMemoryOffset, returndatasize()))\n        returndatacopy(_returndataMemoryOffset, 0x0, returndatasize())\n        return(_returndataMemoryOffset, returndatasize())\n    }\n}",
+                  "src": "642:1549:29"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 5139,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5122,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "342:2:29"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 5123,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "362:0:29"
+            },
+            "scope": 5140,
+            "src": "334:1857:29",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5141,
+        "src": "106:2087:29"
+      }
+    ],
+    "src": "0:2194:29"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+    "exportedSymbols": {
+      "Delegator": [
+        5140
+      ]
+    },
+    "id": 5141,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5101,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:29"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./../IController.sol",
+        "id": 5102,
+        "nodeType": "ImportDirective",
+        "scope": 5141,
+        "sourceUnit": 4384,
+        "src": "27:30:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/DelegationTarget.sol",
+        "file": "./../libraries/DelegationTarget.sol",
+        "id": 5103,
+        "nodeType": "ImportDirective",
+        "scope": 5141,
+        "sourceUnit": 5100,
+        "src": "58:45:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 5104,
+              "name": "DelegationTarget",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 5099,
+              "src": "128:16:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DelegationTarget_$5099",
+                "typeString": "contract DelegationTarget"
+              }
+            },
+            "id": 5105,
+            "nodeType": "InheritanceSpecifier",
+            "src": "128:16:29"
+          }
+        ],
+        "contractDependencies": [
+          3436,
+          4340,
+          5099
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 5140,
+        "linearizedBaseContracts": [
+          5140,
+          5099,
+          3436,
+          4340
+        ],
+        "name": "Delegator",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 5120,
+              "nodeType": "Block",
+              "src": "233:95:29",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 5114,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 5112,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3339,
+                      "src": "243:10:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$4383",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 5113,
+                      "name": "_controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5107,
+                      "src": "256:11:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$4383",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "src": "243:24:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "id": 5115,
+                  "nodeType": "ExpressionStatement",
+                  "src": "243:24:29"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 5118,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 5116,
+                      "name": "controllerLookupName",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5098,
+                      "src": "277:20:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 5117,
+                      "name": "_controllerLookupName",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5109,
+                      "src": "300:21:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "277:44:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 5119,
+                  "nodeType": "ExpressionStatement",
+                  "src": "277:44:29"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 5121,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "Delegator",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5107,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5121,
+                  "src": "170:23:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 5106,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4383,
+                    "src": "170:11:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5109,
+                  "name": "_controllerLookupName",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 5121,
+                  "src": "195:29:29",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5108,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "195:7:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "169:56:29"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 5111,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "233:0:29"
+            },
+            "scope": 5140,
+            "src": "151:177:29",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 5138,
+              "nodeType": "Block",
+              "src": "362:1829:29",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    },
+                    "id": 5126,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 5124,
+                      "name": "controllerLookupName",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 5098,
+                      "src": "460:20:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 5125,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "484:1:29",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "460:25:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 5129,
+                  "nodeType": "IfStatement",
+                  "src": "456:62:29",
+                  "trueBody": {
+                    "id": 5128,
+                    "nodeType": "Block",
+                    "src": "487:31:29",
+                    "statements": [
+                      {
+                        "expression": null,
+                        "functionReturnParameters": 5123,
+                        "id": 5127,
+                        "nodeType": "Return",
+                        "src": "501:7:29"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "assignments": [
+                    5131
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 5131,
+                      "name": "_target",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 5139,
+                      "src": "574:15:29",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 5130,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "574:7:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 5136,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 5134,
+                        "name": "controllerLookupName",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5098,
+                        "src": "610:20:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 5132,
+                        "name": "controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 3339,
+                        "src": "592:10:29",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        }
+                      },
+                      "id": 5133,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "lookup",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 4357,
+                      "src": "592:17:29",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                        "typeString": "function (bytes32) view external returns (address)"
+                      }
+                    },
+                    "id": 5135,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "592:39:29",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "574:57:29"
+                },
+                {
+                  "externalReferences": [
+                    {
+                      "_target": {
+                        "declaration": 5131,
+                        "isOffset": false,
+                        "isSlot": false,
+                        "src": "1444:7:29",
+                        "valueSize": 1
+                      }
+                    }
+                  ],
+                  "id": 5137,
+                  "nodeType": "InlineAssembly",
+                  "operations": "{\n    let _calldataMemoryOffset := mload(0x40)\n    let _size := and(add(calldatasize(), 0x1f), not(0x1f))\n    mstore(0x40, add(_calldataMemoryOffset, _size))\n    calldatacopy(_calldataMemoryOffset, 0x0, calldatasize())\n    let _retval := delegatecall(gas(), _target, _calldataMemoryOffset, calldatasize(), 0, 0)\n    switch _retval\n    case 0 {\n        revert(0, 0)\n    }\n    default {\n        let _returndataMemoryOffset := mload(0x40)\n        mstore(0x40, add(_returndataMemoryOffset, returndatasize()))\n        returndatacopy(_returndataMemoryOffset, 0x0, returndatasize())\n        return(_returndataMemoryOffset, returndatasize())\n    }\n}",
+                  "src": "642:1549:29"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 5139,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5122,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "342:2:29"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 5123,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "362:0:29"
+            },
+            "scope": 5140,
+            "src": "334:1857:29",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 5141,
+        "src": "106:2087:29"
+      }
+    ],
+    "src": "0:2194:29"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.22+commit.4cb486ee.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-07-15T12:03:29.490Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

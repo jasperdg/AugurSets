@@ -1,48 +1,63 @@
 # AugurSets
 
-DISCLAIMER: this code is ready to be used in a production build.
-
-A protocol build atop of Augur that allows for the creation and trading of indexes of positions in Augur markets. 
+A protocol for tokenized indexes of positions in Augur markets.
 
 ## Getting Started
 
 These intstructions will get a copy of AugurSets running on your machine and will allow you to run the tests.
 
 ### Prerequisites
-
-We need to make sure we have [ganache-cli](https://github.com/trufflesuite/ganache-cli) & [Truffle](https://www.trufflesuite.com/) installed.
-
-```
-npm i -g ganache-cli
-```
-```
-npm i -g truffle
-```
+To run this version of AugurSets you requires you to have [docker](https://www.docker.com/) [nodejs](https://nodejs.org/en/) and [truffle](https://www.trufflesuite.com/).
 
 ### Installing
+After installing all of the prerequisites we'll continue by getting a (very slightly) altered version of [augur-core](https://github.com/AugurProject/augur-core) running. This will run a local POA Ethereum blockchain with all the Augur contracts deployed and all contracts addresses needed logged.
 
-Start by cloning AugurSets in your prefered directory if you haven't already.
+Start by cloning this directory if you haven't already:
 
 ```
 git clone https://github.com/jasperdg/AugurSets.git
 ```
 
-Then enter the directory and install all dependencies.
+Then checkout the augur-core directory:
 
 ```
-cd AugurSets && npm install
+cd AugurSets/augur-core
 ```
 
-## Running the tests
-
-Run Ganache-cli.
+Then start the POA parity chain by entering the following command (this will take a couple minutes):
 
 ```
-ganache-cli
+npm run docker:run:integration:parity
 ```
 
-Run the test.
+Open a new tab in your terminal and enter the AugurSets directory and install all of the dependencies:
+```
+cd ../augur-sets
+npm i
+```
 
+## Setup AugurSets
+Create a file called `.pvt.js`
+```
+touch .pvt.js
+```
+
+Open your prefered text editor and paste the following code into `.pvt.js`
+(NOTE: don't worry this not my address, this is just an account that is hardcoded and funded by our POA parity chain)
+```
+module.exports = {
+	PUB_KEY: "0x913dA4198E6bE1D5f5E4a40D0667f70C0B5430Eb",
+	PVT_KEY: "fae42052f82bed612a724fec3632f325f377120592c75bb78adfcceae6470c5a",
+}
+```
+
+The final step before the tests will run is to copy the contract addresses logged by the parity node into `constants.js`. 
+
+The logs should look something like this (but with different addresses):
+![a screenshot showing how the addresses should look](https://github.com/adam-p/markdown-here/raw/master/docs/assets/addresses-example.png "screenshot of addressses")
+
+### Running the tests
+Make sure you're in the `augur-sets` directory and run:
 ```
 truffle test
 ```

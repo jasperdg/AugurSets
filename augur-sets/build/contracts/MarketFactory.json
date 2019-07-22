@@ -1,0 +1,2365 @@
+{
+  "contractName": "MarketFactory",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_controller",
+          "type": "address"
+        },
+        {
+          "name": "_universe",
+          "type": "address"
+        },
+        {
+          "name": "_endTime",
+          "type": "uint256"
+        },
+        {
+          "name": "_feePerEthInWei",
+          "type": "uint256"
+        },
+        {
+          "name": "_denominationToken",
+          "type": "address"
+        },
+        {
+          "name": "_designatedReporterAddress",
+          "type": "address"
+        },
+        {
+          "name": "_sender",
+          "type": "address"
+        },
+        {
+          "name": "_numOutcomes",
+          "type": "uint256"
+        },
+        {
+          "name": "_numTicks",
+          "type": "uint256"
+        }
+      ],
+      "name": "createMarket",
+      "outputs": [
+        {
+          "name": "_market",
+          "type": "address"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610a79806100206000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d48329b14610046575b600080fd5b610122600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190505050610164565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008060008b6101726105f7565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001807f4d61726b65740000000000000000000000000000000000000000000000000000815250602001915050604051809103906000f0801580156101ec573d6000803e3d6000fd5b5091508192508a73ffffffffffffffffffffffffffffffffffffffff1663b80907f26040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561025657600080fd5b505af115801561026a573d6000803e3d6000fd5b505050506040513d602081101561028057600080fd5b810190808051906020019092919050505090508073ffffffffffffffffffffffffffffffffffffffff1663a9059cbb848373ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561034b57600080fd5b505af115801561035f573d6000803e3d6000fd5b505050506040513d602081101561037557600080fd5b81019080805190602001909291905050506040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561040b57600080fd5b505af115801561041f573d6000803e3d6000fd5b505050506040513d602081101561043557600080fd5b8101908080519060200190929190505050151561045157600080fd5b8273ffffffffffffffffffffffffffffffffffffffff166322115ef0348d8d8d8d8d8d8d8d6040518a63ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838152602001828152602001985050505050505050506020604051808303818588803b1580156105a857600080fd5b505af11580156105bc573d6000803e3d6000fd5b50505050506040513d60208110156105d357600080fd5b81019080805190602001909291905050505082925050509998505050505050505050565b60405161044680610608833901905600608060405234801561001057600080fd5b506040516040806104468339810180604052810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060018160001916905550505061036d806100d96000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461018757806392eefe9b146101de578063bef72fa214610239575b60008060010260015460001916141561006f57610184565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f39ec1f76001546040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b505050506040513d602081101561013357600080fd5b81019080805190602001909291905050509050604051601f19601f36011680820160405236600083376000803684865af4806000811461017f576040513d81016040523d6000823e3d81f35b600080fd5b50005b34801561019357600080fd5b5061019c61026c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ea57600080fd5b5061021f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610295565b604051808215151515815260200191505060405180910390f35b34801561024557600080fd5b5061024e61033b565b60405180826000191660001916815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060019050919050565b600154815600a165627a7a723058202e512e870db6d069790c0e290c4f3ba94fb16fb97b62f0de6095bd5ff18551c60029a165627a7a72305820dc481d6d958e2806dfa6cd8ad4a3dc19a6c0cd381e95ff2c7a9504d52c8b1cbd0029",
+  "deployedBytecode": "0x608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d48329b14610046575b600080fd5b610122600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff1690602001909291908035906020019092919080359060200190929190505050610164565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008060008b6101726105f7565b808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001807f4d61726b65740000000000000000000000000000000000000000000000000000815250602001915050604051809103906000f0801580156101ec573d6000803e3d6000fd5b5091508192508a73ffffffffffffffffffffffffffffffffffffffff1663b80907f26040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b15801561025657600080fd5b505af115801561026a573d6000803e3d6000fd5b505050506040513d602081101561028057600080fd5b810190808051906020019092919050505090508073ffffffffffffffffffffffffffffffffffffffff1663a9059cbb848373ffffffffffffffffffffffffffffffffffffffff166370a08231306040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561034b57600080fd5b505af115801561035f573d6000803e3d6000fd5b505050506040513d602081101561037557600080fd5b81019080805190602001909291905050506040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561040b57600080fd5b505af115801561041f573d6000803e3d6000fd5b505050506040513d602081101561043557600080fd5b8101908080519060200190929190505050151561045157600080fd5b8273ffffffffffffffffffffffffffffffffffffffff166322115ef0348d8d8d8d8d8d8d8d6040518a63ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808973ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018881526020018781526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001838152602001828152602001985050505050505050506020604051808303818588803b1580156105a857600080fd5b505af11580156105bc573d6000803e3d6000fd5b50505050506040513d60208110156105d357600080fd5b81019080805190602001909291905050505082925050509998505050505050505050565b60405161044680610608833901905600608060405234801561001057600080fd5b506040516040806104468339810180604052810190808051906020019092919080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060018160001916905550505061036d806100d96000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461018757806392eefe9b146101de578063bef72fa214610239575b60008060010260015460001916141561006f57610184565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663f39ec1f76001546040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808260001916600019168152602001915050602060405180830381600087803b15801561010957600080fd5b505af115801561011d573d6000803e3d6000fd5b505050506040513d602081101561013357600080fd5b81019080805190602001909291905050509050604051601f19601f36011680820160405236600083376000803684865af4806000811461017f576040513d81016040523d6000823e3d81f35b600080fd5b50005b34801561019357600080fd5b5061019c61026c565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ea57600080fd5b5061021f600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610295565b604051808215151515815260200191505060405180910390f35b34801561024557600080fd5b5061024e61033b565b60405180826000191660001916815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f257600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060019050919050565b600154815600a165627a7a723058202e512e870db6d069790c0e290c4f3ba94fb16fb97b62f0de6095bd5ff18551c60029a165627a7a72305820dc481d6d958e2806dfa6cd8ad4a3dc19a6c0cd381e95ff2c7a9504d52c8b1cbd0029",
+  "sourceMap": "215:770:22:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;215:770:22;;;;;;;",
+  "deployedSourceMap": "215:770:22:-;;;;;;;;;;;;;;;;;;;;;;;;244:739;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;499:15;526:20;634:33;563:11;549:36;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;549:36:22;526:59;;613:10;595:29;;670:9;:28;;;:30;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;670:30:22;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;670:30:22;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;670:30:22;;;;;;;;;;;;;;;;634:66;;718:16;:25;;;744:7;753:16;:26;;;780:4;753:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;753:32:22;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;753:32:22;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;753:32:22;;;;;;;;;;;;;;;;718:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;718:68:22;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;718:68:22;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;718:68:22;;;;;;;;;;;;;;;;710:77;;;;;;;;797:7;:18;;;822:9;833;844:8;854:15;871:18;891:26;919:7;928:12;942:9;797:155;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;797:155:22;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;797:155:22;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;797:155:22;;;;;;;;;;;;;;;;;969:7;962:14;;244:739;;;;;;;;;;;;;:::o;215:770::-;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.22;\n\n\nimport './../libraries/Delegator.sol';\nimport './../reporting/IMarket.sol';\nimport './../reporting/IReputationToken.sol';\nimport './../trading/ICash.sol';\nimport './../IController.sol';\n\n\ncontract MarketFactory {\n    function createMarket(IController _controller, IUniverse _universe, uint256 _endTime, uint256 _feePerEthInWei, ICash _denominationToken, address _designatedReporterAddress, address _sender, uint256 _numOutcomes, uint256 _numTicks) public payable returns (IMarket _market) {\n        Delegator _delegator = new Delegator(_controller, \"Market\");\n        _market = IMarket(_delegator);\n        IReputationToken _reputationToken = _universe.getReputationToken();\n        require(_reputationToken.transfer(_market, _reputationToken.balanceOf(this)));\n        _market.initialize.value(msg.value)(_universe, _endTime, _feePerEthInWei, _denominationToken, _designatedReporterAddress, _sender, _numOutcomes, _numTicks);\n        return _market;\n    }\n}\n",
+  "sourcePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/factories/MarketFactory.sol",
+  "ast": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/factories/MarketFactory.sol",
+    "exportedSymbols": {
+      "MarketFactory": [
+        4850
+      ]
+    },
+    "id": 4851,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4769,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:22"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+        "file": "./../libraries/Delegator.sol",
+        "id": 4770,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 5141,
+        "src": "27:38:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMarket.sol",
+        "file": "./../reporting/IMarket.sol",
+        "id": 4771,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 7720,
+        "src": "66:36:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IReputationToken.sol",
+        "file": "./../reporting/IReputationToken.sol",
+        "id": 4772,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 7895,
+        "src": "103:45:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/ICash.sol",
+        "file": "./../trading/ICash.sol",
+        "id": 4773,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 13304,
+        "src": "149:32:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./../IController.sol",
+        "id": 4774,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 4384,
+        "src": "182:30:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          5140
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4850,
+        "linearizedBaseContracts": [
+          4850
+        ],
+        "name": "MarketFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4848,
+              "nodeType": "Block",
+              "src": "516:467:22",
+              "statements": [
+                {
+                  "assignments": [
+                    4798
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4798,
+                      "name": "_delegator",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4849,
+                      "src": "526:20:22",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Delegator_$5140",
+                        "typeString": "contract Delegator"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4797,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "526:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4804,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4801,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4776,
+                        "src": "563:11:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4d61726b6574",
+                        "id": 4802,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "576:8:22",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_2e7a327ef83c2af7579c6634f2f5604519800c5f07626f27bd602fd11ed8e6ec",
+                          "typeString": "literal_string \"Market\""
+                        },
+                        "value": "Market"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_2e7a327ef83c2af7579c6634f2f5604519800c5f07626f27bd602fd11ed8e6ec",
+                          "typeString": "literal_string \"Market\""
+                        }
+                      ],
+                      "id": 4800,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "549:13:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_IController_$4383_$_t_bytes32_$returns$_t_contract$_Delegator_$5140_$",
+                        "typeString": "function (contract IController,bytes32) returns (contract Delegator)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4799,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "553:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      }
+                    },
+                    "id": 4803,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "549:36:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Delegator_$5140",
+                      "typeString": "contract Delegator"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "526:59:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4809,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 4805,
+                      "name": "_market",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4795,
+                      "src": "595:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IMarket_$7719",
+                        "typeString": "contract IMarket"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4807,
+                          "name": "_delegator",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4798,
+                          "src": "613:10:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_Delegator_$5140",
+                            "typeString": "contract Delegator"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_Delegator_$5140",
+                            "typeString": "contract Delegator"
+                          }
+                        ],
+                        "id": 4806,
+                        "name": "IMarket",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7719,
+                        "src": "605:7:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IMarket_$7719_$",
+                          "typeString": "type(contract IMarket)"
+                        }
+                      },
+                      "id": 4808,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "605:19:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IMarket_$7719",
+                        "typeString": "contract IMarket"
+                      }
+                    },
+                    "src": "595:29:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeString": "contract IMarket"
+                    }
+                  },
+                  "id": 4810,
+                  "nodeType": "ExpressionStatement",
+                  "src": "595:29:22"
+                },
+                {
+                  "assignments": [
+                    4812
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4812,
+                      "name": "_reputationToken",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4849,
+                      "src": "634:33:22",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                        "typeString": "contract IReputationToken"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4811,
+                        "name": "IReputationToken",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 7894,
+                        "src": "634:16:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                          "typeString": "contract IReputationToken"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4816,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4813,
+                        "name": "_universe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4778,
+                        "src": "670:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      },
+                      "id": 4814,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "getReputationToken",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7947,
+                      "src": "670:28:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_IReputationToken_$7894_$",
+                        "typeString": "function () view external returns (contract IReputationToken)"
+                      }
+                    },
+                    "id": 4815,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "670:30:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "634:66:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 4820,
+                            "name": "_market",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4795,
+                            "src": "744:7:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IMarket_$7719",
+                              "typeString": "contract IMarket"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 4823,
+                                "name": "this",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 14456,
+                                "src": "780:4:22",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_MarketFactory_$4850",
+                                  "typeString": "contract MarketFactory"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_MarketFactory_$4850",
+                                  "typeString": "contract MarketFactory"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 4821,
+                                "name": "_reputationToken",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4812,
+                                "src": "753:16:22",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                                  "typeString": "contract IReputationToken"
+                                }
+                              },
+                              "id": 4822,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "balanceOf",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 6181,
+                              "src": "753:26:22",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                                "typeString": "function (address) view external returns (uint256)"
+                              }
+                            },
+                            "id": 4824,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "753:32:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_IMarket_$7719",
+                              "typeString": "contract IMarket"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4818,
+                            "name": "_reputationToken",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4812,
+                            "src": "718:16:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                              "typeString": "contract IReputationToken"
+                            }
+                          },
+                          "id": 4819,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "transfer",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 6190,
+                          "src": "718:25:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (address,uint256) external returns (bool)"
+                          }
+                        },
+                        "id": 4825,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "718:68:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 4817,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        14348,
+                        14349
+                      ],
+                      "referencedDeclaration": 14348,
+                      "src": "710:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 4826,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "710:77:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4827,
+                  "nodeType": "ExpressionStatement",
+                  "src": "710:77:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4836,
+                        "name": "_universe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4778,
+                        "src": "833:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4837,
+                        "name": "_endTime",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4780,
+                        "src": "844:8:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4838,
+                        "name": "_feePerEthInWei",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4782,
+                        "src": "854:15:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4839,
+                        "name": "_denominationToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4784,
+                        "src": "871:18:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ICash_$13303",
+                          "typeString": "contract ICash"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4840,
+                        "name": "_designatedReporterAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4786,
+                        "src": "891:26:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4841,
+                        "name": "_sender",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4788,
+                        "src": "919:7:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4842,
+                        "name": "_numOutcomes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4790,
+                        "src": "928:12:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4843,
+                        "name": "_numTicks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4792,
+                        "src": "942:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_contract$_ICash_$13303",
+                          "typeString": "contract ICash"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4833,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14345,
+                            "src": "822:3:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 4834,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "value",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "822:9:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4828,
+                            "name": "_market",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4795,
+                            "src": "797:7:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IMarket_$7719",
+                              "typeString": "contract IMarket"
+                            }
+                          },
+                          "id": 4831,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "initialize",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 7573,
+                          "src": "797:18:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_payable$_t_contract$_IUniverse_$8166_$_t_uint256_$_t_uint256_$_t_contract$_ICash_$13303_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (contract IUniverse,uint256,uint256,contract ICash,address,address,uint256,uint256) payable external returns (bool)"
+                          }
+                        },
+                        "id": 4832,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "797:24:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_setvalue_nonpayable$_t_uint256_$returns$_t_function_external_payable$_t_contract$_IUniverse_$8166_$_t_uint256_$_t_uint256_$_t_contract$_ICash_$13303_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$value_$",
+                          "typeString": "function (uint256) returns (function (contract IUniverse,uint256,uint256,contract ICash,address,address,uint256,uint256) payable external returns (bool))"
+                        }
+                      },
+                      "id": 4835,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "797:35:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_payable$_t_contract$_IUniverse_$8166_$_t_uint256_$_t_uint256_$_t_contract$_ICash_$13303_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$value",
+                        "typeString": "function (contract IUniverse,uint256,uint256,contract ICash,address,address,uint256,uint256) payable external returns (bool)"
+                      }
+                    },
+                    "id": 4844,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "797:155:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4845,
+                  "nodeType": "ExpressionStatement",
+                  "src": "797:155:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4846,
+                    "name": "_market",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 4795,
+                    "src": "969:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeString": "contract IMarket"
+                    }
+                  },
+                  "functionReturnParameters": 4796,
+                  "id": 4847,
+                  "nodeType": "Return",
+                  "src": "962:14:22"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4849,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "createMarket",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4793,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4776,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "266:23:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4775,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4383,
+                    "src": "266:11:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4778,
+                  "name": "_universe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "291:19:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniverse_$8166",
+                    "typeString": "contract IUniverse"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4777,
+                    "name": "IUniverse",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8166,
+                    "src": "291:9:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IUniverse_$8166",
+                      "typeString": "contract IUniverse"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4780,
+                  "name": "_endTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "312:16:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4779,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4782,
+                  "name": "_feePerEthInWei",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "330:23:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4781,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "330:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4784,
+                  "name": "_denominationToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "355:24:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ICash_$13303",
+                    "typeString": "contract ICash"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4783,
+                    "name": "ICash",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13303,
+                    "src": "355:5:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ICash_$13303",
+                      "typeString": "contract ICash"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4786,
+                  "name": "_designatedReporterAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "381:34:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4785,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "381:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4788,
+                  "name": "_sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "417:15:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4787,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "417:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4790,
+                  "name": "_numOutcomes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "434:20:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4789,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "434:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4792,
+                  "name": "_numTicks",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "456:17:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4791,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "456:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "265:209:22"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 4796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4795,
+                  "name": "_market",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "499:15:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IMarket_$7719",
+                    "typeString": "contract IMarket"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4794,
+                    "name": "IMarket",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7719,
+                    "src": "499:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeString": "contract IMarket"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "498:17:22"
+            },
+            "scope": 4850,
+            "src": "244:739:22",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4851,
+        "src": "215:770:22"
+      }
+    ],
+    "src": "0:986:22"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/factories/MarketFactory.sol",
+    "exportedSymbols": {
+      "MarketFactory": [
+        4850
+      ]
+    },
+    "id": 4851,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4769,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:22"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/libraries/Delegator.sol",
+        "file": "./../libraries/Delegator.sol",
+        "id": 4770,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 5141,
+        "src": "27:38:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IMarket.sol",
+        "file": "./../reporting/IMarket.sol",
+        "id": 4771,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 7720,
+        "src": "66:36:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/reporting/IReputationToken.sol",
+        "file": "./../reporting/IReputationToken.sol",
+        "id": 4772,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 7895,
+        "src": "103:45:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/trading/ICash.sol",
+        "file": "./../trading/ICash.sol",
+        "id": 4773,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 13304,
+        "src": "149:32:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/flux/augurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./../IController.sol",
+        "id": 4774,
+        "nodeType": "ImportDirective",
+        "scope": 4851,
+        "sourceUnit": 4384,
+        "src": "182:30:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [
+          5140
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 4850,
+        "linearizedBaseContracts": [
+          4850
+        ],
+        "name": "MarketFactory",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 4848,
+              "nodeType": "Block",
+              "src": "516:467:22",
+              "statements": [
+                {
+                  "assignments": [
+                    4798
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4798,
+                      "name": "_delegator",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4849,
+                      "src": "526:20:22",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Delegator_$5140",
+                        "typeString": "contract Delegator"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4797,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "526:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4804,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4801,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4776,
+                        "src": "563:11:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "4d61726b6574",
+                        "id": 4802,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "576:8:22",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_2e7a327ef83c2af7579c6634f2f5604519800c5f07626f27bd602fd11ed8e6ec",
+                          "typeString": "literal_string \"Market\""
+                        },
+                        "value": "Market"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IController_$4383",
+                          "typeString": "contract IController"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_2e7a327ef83c2af7579c6634f2f5604519800c5f07626f27bd602fd11ed8e6ec",
+                          "typeString": "literal_string \"Market\""
+                        }
+                      ],
+                      "id": 4800,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "549:13:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_creation_nonpayable$_t_contract$_IController_$4383_$_t_bytes32_$returns$_t_contract$_Delegator_$5140_$",
+                        "typeString": "function (contract IController,bytes32) returns (contract Delegator)"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4799,
+                        "name": "Delegator",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5140,
+                        "src": "553:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Delegator_$5140",
+                          "typeString": "contract Delegator"
+                        }
+                      }
+                    },
+                    "id": 4803,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "549:36:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Delegator_$5140",
+                      "typeString": "contract Delegator"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "526:59:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4809,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 4805,
+                      "name": "_market",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 4795,
+                      "src": "595:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IMarket_$7719",
+                        "typeString": "contract IMarket"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 4807,
+                          "name": "_delegator",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4798,
+                          "src": "613:10:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_Delegator_$5140",
+                            "typeString": "contract Delegator"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_contract$_Delegator_$5140",
+                            "typeString": "contract Delegator"
+                          }
+                        ],
+                        "id": 4806,
+                        "name": "IMarket",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7719,
+                        "src": "605:7:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IMarket_$7719_$",
+                          "typeString": "type(contract IMarket)"
+                        }
+                      },
+                      "id": 4808,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "605:19:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IMarket_$7719",
+                        "typeString": "contract IMarket"
+                      }
+                    },
+                    "src": "595:29:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeString": "contract IMarket"
+                    }
+                  },
+                  "id": 4810,
+                  "nodeType": "ExpressionStatement",
+                  "src": "595:29:22"
+                },
+                {
+                  "assignments": [
+                    4812
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 4812,
+                      "name": "_reputationToken",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 4849,
+                      "src": "634:33:22",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                        "typeString": "contract IReputationToken"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 4811,
+                        "name": "IReputationToken",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 7894,
+                        "src": "634:16:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                          "typeString": "contract IReputationToken"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 4816,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 4813,
+                        "name": "_universe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4778,
+                        "src": "670:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      },
+                      "id": 4814,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "getReputationToken",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 7947,
+                      "src": "670:28:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_IReputationToken_$7894_$",
+                        "typeString": "function () view external returns (contract IReputationToken)"
+                      }
+                    },
+                    "id": 4815,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "670:30:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                      "typeString": "contract IReputationToken"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "634:66:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 4820,
+                            "name": "_market",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4795,
+                            "src": "744:7:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IMarket_$7719",
+                              "typeString": "contract IMarket"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 4823,
+                                "name": "this",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 14456,
+                                "src": "780:4:22",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_MarketFactory_$4850",
+                                  "typeString": "contract MarketFactory"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_MarketFactory_$4850",
+                                  "typeString": "contract MarketFactory"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 4821,
+                                "name": "_reputationToken",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4812,
+                                "src": "753:16:22",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                                  "typeString": "contract IReputationToken"
+                                }
+                              },
+                              "id": 4822,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "balanceOf",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 6181,
+                              "src": "753:26:22",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                                "typeString": "function (address) view external returns (uint256)"
+                              }
+                            },
+                            "id": 4824,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "753:32:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_IMarket_$7719",
+                              "typeString": "contract IMarket"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4818,
+                            "name": "_reputationToken",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4812,
+                            "src": "718:16:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IReputationToken_$7894",
+                              "typeString": "contract IReputationToken"
+                            }
+                          },
+                          "id": 4819,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "transfer",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 6190,
+                          "src": "718:25:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (address,uint256) external returns (bool)"
+                          }
+                        },
+                        "id": 4825,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "718:68:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 4817,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        14348,
+                        14349
+                      ],
+                      "referencedDeclaration": 14348,
+                      "src": "710:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 4826,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "710:77:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 4827,
+                  "nodeType": "ExpressionStatement",
+                  "src": "710:77:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 4836,
+                        "name": "_universe",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4778,
+                        "src": "833:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4837,
+                        "name": "_endTime",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4780,
+                        "src": "844:8:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4838,
+                        "name": "_feePerEthInWei",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4782,
+                        "src": "854:15:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4839,
+                        "name": "_denominationToken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4784,
+                        "src": "871:18:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ICash_$13303",
+                          "typeString": "contract ICash"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4840,
+                        "name": "_designatedReporterAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4786,
+                        "src": "891:26:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4841,
+                        "name": "_sender",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4788,
+                        "src": "919:7:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4842,
+                        "name": "_numOutcomes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4790,
+                        "src": "928:12:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 4843,
+                        "name": "_numTicks",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4792,
+                        "src": "942:9:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_IUniverse_$8166",
+                          "typeString": "contract IUniverse"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_contract$_ICash_$13303",
+                          "typeString": "contract ICash"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4833,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14345,
+                            "src": "822:3:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 4834,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "value",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "822:9:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 4828,
+                            "name": "_market",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4795,
+                            "src": "797:7:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IMarket_$7719",
+                              "typeString": "contract IMarket"
+                            }
+                          },
+                          "id": 4831,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "initialize",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 7573,
+                          "src": "797:18:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_payable$_t_contract$_IUniverse_$8166_$_t_uint256_$_t_uint256_$_t_contract$_ICash_$13303_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$",
+                            "typeString": "function (contract IUniverse,uint256,uint256,contract ICash,address,address,uint256,uint256) payable external returns (bool)"
+                          }
+                        },
+                        "id": 4832,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "797:24:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_setvalue_nonpayable$_t_uint256_$returns$_t_function_external_payable$_t_contract$_IUniverse_$8166_$_t_uint256_$_t_uint256_$_t_contract$_ICash_$13303_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$value_$",
+                          "typeString": "function (uint256) returns (function (contract IUniverse,uint256,uint256,contract ICash,address,address,uint256,uint256) payable external returns (bool))"
+                        }
+                      },
+                      "id": 4835,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "797:35:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_payable$_t_contract$_IUniverse_$8166_$_t_uint256_$_t_uint256_$_t_contract$_ICash_$13303_$_t_address_$_t_address_$_t_uint256_$_t_uint256_$returns$_t_bool_$value",
+                        "typeString": "function (contract IUniverse,uint256,uint256,contract ICash,address,address,uint256,uint256) payable external returns (bool)"
+                      }
+                    },
+                    "id": 4844,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "797:155:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 4845,
+                  "nodeType": "ExpressionStatement",
+                  "src": "797:155:22"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 4846,
+                    "name": "_market",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 4795,
+                    "src": "969:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeString": "contract IMarket"
+                    }
+                  },
+                  "functionReturnParameters": 4796,
+                  "id": 4847,
+                  "nodeType": "Return",
+                  "src": "962:14:22"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 4849,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "createMarket",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4793,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4776,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "266:23:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$4383",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4775,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 4383,
+                    "src": "266:11:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$4383",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4778,
+                  "name": "_universe",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "291:19:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IUniverse_$8166",
+                    "typeString": "contract IUniverse"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4777,
+                    "name": "IUniverse",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 8166,
+                    "src": "291:9:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IUniverse_$8166",
+                      "typeString": "contract IUniverse"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4780,
+                  "name": "_endTime",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "312:16:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4779,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "312:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4782,
+                  "name": "_feePerEthInWei",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "330:23:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4781,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "330:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4784,
+                  "name": "_denominationToken",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "355:24:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ICash_$13303",
+                    "typeString": "contract ICash"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4783,
+                    "name": "ICash",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13303,
+                    "src": "355:5:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ICash_$13303",
+                      "typeString": "contract ICash"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4786,
+                  "name": "_designatedReporterAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "381:34:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4785,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "381:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4788,
+                  "name": "_sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "417:15:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4787,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "417:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4790,
+                  "name": "_numOutcomes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "434:20:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4789,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "434:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4792,
+                  "name": "_numTicks",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "456:17:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4791,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "456:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "265:209:22"
+            },
+            "payable": true,
+            "returnParameters": {
+              "id": 4796,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4795,
+                  "name": "_market",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4849,
+                  "src": "499:15:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IMarket_$7719",
+                    "typeString": "contract IMarket"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 4794,
+                    "name": "IMarket",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 7719,
+                    "src": "499:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IMarket_$7719",
+                      "typeString": "contract IMarket"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "498:17:22"
+            },
+            "scope": 4850,
+            "src": "244:739:22",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 4851,
+        "src": "215:770:22"
+      }
+    ],
+    "src": "0:986:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.22+commit.4cb486ee.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-07-15T12:03:29.487Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

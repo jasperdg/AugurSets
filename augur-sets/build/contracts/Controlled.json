@@ -1,0 +1,2625 @@
+{
+  "contractName": "Controlled",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_controller",
+          "type": "address"
+        }
+      ],
+      "name": "setController",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101fe806100606000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461005157806392eefe9b146100a8575b600080fd5b34801561005d57600080fd5b50610066610103565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100b457600080fd5b506100e9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061012c565b604051808215151515815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561018957600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190509190505600a165627a7a723058200dcdd4fdc5fbe65d72e6a7fb704c874dfc6f16c812a34cd372fdbc3866528f600029",
+  "deployedBytecode": "0x60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633018205f1461005157806392eefe9b146100a8575b600080fd5b34801561005d57600080fd5b50610066610103565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100b457600080fd5b506100e9600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061012c565b604051808215151515815260200191505060405180910390f35b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561018957600080fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190509190505600a165627a7a723058200dcdd4fdc5fbe65d72e6a7fb704c874dfc6f16c812a34cd372fdbc3866528f600029",
+  "sourceMap": "128:943:8:-;;;739:74;8:9:-1;5:2;;;30:1;27;20:12;5:2;739:74:8;795:10;770;;:36;;;;;;;;;;;;;;;;;;128:943;;;;;;",
+  "deployedSourceMap": "128:943:8:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;819:92;;8:9:-1;5:2;;;30:1;27;20:12;5:2;819:92:8;;;;;;;;;;;;;;;;;;;;;;;;;;;917:152;;8:9:-1;5:2;;;30:1;27;20:12;5:2;917:152:8;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;819:92;864:11;894:10;;;;;;;;;;;887:17;;819:92;:::o;917:152::-;1001:4;513:10;;;;;;;;;;;486:37;;498:10;486:37;;;478:46;;;;;;;;1030:11;1017:10;;:24;;;;;;;;;;;;;;;;;;1058:4;1051:11;;917:152;;;:::o",
+  "source": "pragma solidity ^0.4.22;\n\n\nimport './IControlled.sol';\nimport './IController.sol';\nimport './libraries/token/ERC20Basic.sol';\n\n\ncontract Controlled is IControlled {\n    IController internal controller;\n\n    modifier onlyWhitelistedCallers {\n        require(controller.assertIsWhitelisted(msg.sender));\n        _;\n    }\n\n    modifier onlyCaller(bytes32 _key) {\n        require(msg.sender == controller.lookup(_key));\n        _;\n    }\n\n    modifier onlyControllerCaller {\n        require(IController(msg.sender) == controller);\n        _;\n    }\n\n    modifier onlyInGoodTimes {\n        require(controller.stopInEmergency());\n        _;\n    }\n\n    modifier onlyInBadTimes {\n        require(controller.onlyInEmergency());\n        _;\n    }\n\n    constructor() public {\n        controller = IController(msg.sender);\n    }\n\n    function getController() public view returns(IController) {\n        return controller;\n    }\n\n    function setController(IController _controller) public onlyControllerCaller returns(bool) {\n        controller = _controller;\n        return true;\n    }\n}\n",
+  "sourcePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/Controlled.sol",
+  "ast": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/Controlled.sol",
+    "exportedSymbols": {
+      "Controlled": [
+        1615
+      ]
+    },
+    "id": 1616,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1511,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:8"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
+        "file": "./IControlled.sol",
+        "id": 1512,
+        "nodeType": "ImportDirective",
+        "scope": 1616,
+        "sourceUnit": 2229,
+        "src": "27:27:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./IController.sol",
+        "id": 1513,
+        "nodeType": "ImportDirective",
+        "scope": 1616,
+        "sourceUnit": 2272,
+        "src": "55:27:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20Basic.sol",
+        "file": "./libraries/token/ERC20Basic.sol",
+        "id": 1514,
+        "nodeType": "ImportDirective",
+        "scope": 1616,
+        "sourceUnit": 2781,
+        "src": "83:42:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1515,
+              "name": "IControlled",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2228,
+              "src": "151:11:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IControlled_$2228",
+                "typeString": "contract IControlled"
+              }
+            },
+            "id": 1516,
+            "nodeType": "InheritanceSpecifier",
+            "src": "151:11:8"
+          }
+        ],
+        "contractDependencies": [
+          2228
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1615,
+        "linearizedBaseContracts": [
+          1615,
+          2228
+        ],
+        "name": "Controlled",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1518,
+            "name": "controller",
+            "nodeType": "VariableDeclaration",
+            "scope": 1615,
+            "src": "169:31:8",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IController_$2271",
+              "typeString": "contract IController"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1517,
+              "name": "IController",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2271,
+              "src": "169:11:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IController_$2271",
+                "typeString": "contract IController"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1529,
+              "nodeType": "Block",
+              "src": "239:79:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 1523,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 5713,
+                              "src": "288:3:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 1524,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "288:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1521,
+                            "name": "controller",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1518,
+                            "src": "257:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IController_$2271",
+                              "typeString": "contract IController"
+                            }
+                          },
+                          "id": 1522,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "assertIsWhitelisted",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2238,
+                          "src": "257:30:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view external returns (bool)"
+                          }
+                        },
+                        "id": 1525,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "257:42:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1520,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "249:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1526,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "249:51:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1527,
+                  "nodeType": "ExpressionStatement",
+                  "src": "249:51:8"
+                },
+                {
+                  "id": 1528,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "310:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1530,
+            "name": "onlyWhitelistedCallers",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1519,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "239:0:8"
+            },
+            "src": "207:111:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1545,
+              "nodeType": "Block",
+              "src": "358:74:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 1541,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1535,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5713,
+                            "src": "376:3:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 1536,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "376:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 1539,
+                              "name": "_key",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1532,
+                              "src": "408:4:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 1537,
+                              "name": "controller",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1518,
+                              "src": "390:10:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IController_$2271",
+                                "typeString": "contract IController"
+                              }
+                            },
+                            "id": 1538,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "lookup",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2245,
+                            "src": "390:17:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                              "typeString": "function (bytes32) view external returns (address)"
+                            }
+                          },
+                          "id": 1540,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "390:23:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "376:37:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1534,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "368:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "368:46:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1543,
+                  "nodeType": "ExpressionStatement",
+                  "src": "368:46:8"
+                },
+                {
+                  "id": 1544,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "424:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1546,
+            "name": "onlyCaller",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1533,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1532,
+                  "name": "_key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1546,
+                  "src": "344:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1531,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "344:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "343:14:8"
+            },
+            "src": "324:108:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1558,
+              "nodeType": "Block",
+              "src": "468:74:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_contract$_IController_$2271",
+                          "typeString": "contract IController"
+                        },
+                        "id": 1554,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 1550,
+                                "name": "msg",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 5713,
+                                "src": "498:3:8",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_message",
+                                  "typeString": "msg"
+                                }
+                              },
+                              "id": 1551,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sender",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "498:10:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "id": 1549,
+                            "name": "IController",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2271,
+                            "src": "486:11:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_IController_$2271_$",
+                              "typeString": "type(contract IController)"
+                            }
+                          },
+                          "id": 1552,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "486:23:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_IController_$2271",
+                            "typeString": "contract IController"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 1553,
+                          "name": "controller",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1518,
+                          "src": "513:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_IController_$2271",
+                            "typeString": "contract IController"
+                          }
+                        },
+                        "src": "486:37:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1548,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "478:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1555,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "478:46:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1556,
+                  "nodeType": "ExpressionStatement",
+                  "src": "478:46:8"
+                },
+                {
+                  "id": 1557,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "534:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1559,
+            "name": "onlyControllerCaller",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1547,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "468:0:8"
+            },
+            "src": "438:104:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1568,
+              "nodeType": "Block",
+              "src": "573:65:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1562,
+                            "name": "controller",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1518,
+                            "src": "591:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IController_$2271",
+                              "typeString": "contract IController"
+                            }
+                          },
+                          "id": 1563,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "stopInEmergency",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2250,
+                          "src": "591:26:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$__$returns$_t_bool_$",
+                            "typeString": "function () view external returns (bool)"
+                          }
+                        },
+                        "id": 1564,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "591:28:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1561,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "583:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1565,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "583:37:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1566,
+                  "nodeType": "ExpressionStatement",
+                  "src": "583:37:8"
+                },
+                {
+                  "id": 1567,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "630:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1569,
+            "name": "onlyInGoodTimes",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1560,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "573:0:8"
+            },
+            "src": "548:90:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1578,
+              "nodeType": "Block",
+              "src": "668:65:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1572,
+                            "name": "controller",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1518,
+                            "src": "686:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IController_$2271",
+                              "typeString": "contract IController"
+                            }
+                          },
+                          "id": 1573,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "onlyInEmergency",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2255,
+                          "src": "686:26:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$__$returns$_t_bool_$",
+                            "typeString": "function () view external returns (bool)"
+                          }
+                        },
+                        "id": 1574,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "686:28:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1571,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "678:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1575,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "678:37:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1576,
+                  "nodeType": "ExpressionStatement",
+                  "src": "678:37:8"
+                },
+                {
+                  "id": 1577,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "725:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1579,
+            "name": "onlyInBadTimes",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1570,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "668:0:8"
+            },
+            "src": "644:89:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1589,
+              "nodeType": "Block",
+              "src": "760:53:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1587,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1582,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1518,
+                      "src": "770:10:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1584,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5713,
+                            "src": "795:3:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 1585,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "795:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 1583,
+                        "name": "IController",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2271,
+                        "src": "783:11:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IController_$2271_$",
+                          "typeString": "type(contract IController)"
+                        }
+                      },
+                      "id": 1586,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "783:23:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "src": "770:36:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "id": 1588,
+                  "nodeType": "ExpressionStatement",
+                  "src": "770:36:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1590,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1580,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "750:2:8"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1581,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "760:0:8"
+            },
+            "scope": 1615,
+            "src": "739:74:8",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1597,
+              "nodeType": "Block",
+              "src": "877:34:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1595,
+                    "name": "controller",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 1518,
+                    "src": "894:10:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "functionReturnParameters": 1594,
+                  "id": 1596,
+                  "nodeType": "Return",
+                  "src": "887:17:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1598,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1591,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "841:2:8"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1594,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1593,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1598,
+                  "src": "864:11:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$2271",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 1592,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2271,
+                    "src": "864:11:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "863:13:8"
+            },
+            "scope": 1615,
+            "src": "819:92:8",
+            "stateMutability": "view",
+            "superFunction": 2220,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1613,
+              "nodeType": "Block",
+              "src": "1007:62:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1609,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1607,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1518,
+                      "src": "1017:10:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 1608,
+                      "name": "_controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1600,
+                      "src": "1030:11:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "src": "1017:24:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "id": 1610,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1017:24:8"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 1611,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1058:4:8",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 1606,
+                  "id": 1612,
+                  "nodeType": "Return",
+                  "src": "1051:11:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1614,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1603,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1602,
+                  "name": "onlyControllerCaller",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1559,
+                  "src": "972:20:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "972:20:8"
+              }
+            ],
+            "name": "setController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1601,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1600,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1614,
+                  "src": "940:23:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$2271",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 1599,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2271,
+                    "src": "940:11:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "939:25:8"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1606,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1605,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1614,
+                  "src": "1001:4:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1604,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1001:4:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1000:6:8"
+            },
+            "scope": 1615,
+            "src": "917:152:8",
+            "stateMutability": "nonpayable",
+            "superFunction": 2227,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1616,
+        "src": "128:943:8"
+      }
+    ],
+    "src": "0:1072:8"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/Controlled.sol",
+    "exportedSymbols": {
+      "Controlled": [
+        1615
+      ]
+    },
+    "id": 1616,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1511,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".22"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:8"
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IControlled.sol",
+        "file": "./IControlled.sol",
+        "id": 1512,
+        "nodeType": "ImportDirective",
+        "scope": 1616,
+        "sourceUnit": 2229,
+        "src": "27:27:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/IController.sol",
+        "file": "./IController.sol",
+        "id": 1513,
+        "nodeType": "ImportDirective",
+        "scope": 1616,
+        "sourceUnit": 2272,
+        "src": "55:27:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/jasperdegooijer/Documents/AugurSets/AugurSets/libraries/augur/source/contracts/libraries/token/ERC20Basic.sol",
+        "file": "./libraries/token/ERC20Basic.sol",
+        "id": 1514,
+        "nodeType": "ImportDirective",
+        "scope": 1616,
+        "sourceUnit": 2781,
+        "src": "83:42:8",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 1515,
+              "name": "IControlled",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2228,
+              "src": "151:11:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IControlled_$2228",
+                "typeString": "contract IControlled"
+              }
+            },
+            "id": 1516,
+            "nodeType": "InheritanceSpecifier",
+            "src": "151:11:8"
+          }
+        ],
+        "contractDependencies": [
+          2228
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1615,
+        "linearizedBaseContracts": [
+          1615,
+          2228
+        ],
+        "name": "Controlled",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 1518,
+            "name": "controller",
+            "nodeType": "VariableDeclaration",
+            "scope": 1615,
+            "src": "169:31:8",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IController_$2271",
+              "typeString": "contract IController"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 1517,
+              "name": "IController",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2271,
+              "src": "169:11:8",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IController_$2271",
+                "typeString": "contract IController"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1529,
+              "nodeType": "Block",
+              "src": "239:79:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 1523,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 5713,
+                              "src": "288:3:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 1524,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "288:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1521,
+                            "name": "controller",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1518,
+                            "src": "257:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IController_$2271",
+                              "typeString": "contract IController"
+                            }
+                          },
+                          "id": 1522,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "assertIsWhitelisted",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2238,
+                          "src": "257:30:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view external returns (bool)"
+                          }
+                        },
+                        "id": 1525,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "257:42:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1520,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "249:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1526,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "249:51:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1527,
+                  "nodeType": "ExpressionStatement",
+                  "src": "249:51:8"
+                },
+                {
+                  "id": 1528,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "310:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1530,
+            "name": "onlyWhitelistedCallers",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1519,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "239:0:8"
+            },
+            "src": "207:111:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1545,
+              "nodeType": "Block",
+              "src": "358:74:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 1541,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1535,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5713,
+                            "src": "376:3:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 1536,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "376:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 1539,
+                              "name": "_key",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1532,
+                              "src": "408:4:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 1537,
+                              "name": "controller",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1518,
+                              "src": "390:10:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IController_$2271",
+                                "typeString": "contract IController"
+                              }
+                            },
+                            "id": 1538,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "lookup",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2245,
+                            "src": "390:17:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_address_$",
+                              "typeString": "function (bytes32) view external returns (address)"
+                            }
+                          },
+                          "id": 1540,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "390:23:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "376:37:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1534,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "368:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "368:46:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1543,
+                  "nodeType": "ExpressionStatement",
+                  "src": "368:46:8"
+                },
+                {
+                  "id": 1544,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "424:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1546,
+            "name": "onlyCaller",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1533,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1532,
+                  "name": "_key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1546,
+                  "src": "344:12:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 1531,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "344:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "343:14:8"
+            },
+            "src": "324:108:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1558,
+              "nodeType": "Block",
+              "src": "468:74:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_contract$_IController_$2271",
+                          "typeString": "contract IController"
+                        },
+                        "id": 1554,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 1550,
+                                "name": "msg",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 5713,
+                                "src": "498:3:8",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_message",
+                                  "typeString": "msg"
+                                }
+                              },
+                              "id": 1551,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "sender",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "498:10:8",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "id": 1549,
+                            "name": "IController",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2271,
+                            "src": "486:11:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_IController_$2271_$",
+                              "typeString": "type(contract IController)"
+                            }
+                          },
+                          "id": 1552,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "486:23:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_IController_$2271",
+                            "typeString": "contract IController"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 1553,
+                          "name": "controller",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1518,
+                          "src": "513:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_IController_$2271",
+                            "typeString": "contract IController"
+                          }
+                        },
+                        "src": "486:37:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1548,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "478:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1555,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "478:46:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1556,
+                  "nodeType": "ExpressionStatement",
+                  "src": "478:46:8"
+                },
+                {
+                  "id": 1557,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "534:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1559,
+            "name": "onlyControllerCaller",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1547,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "468:0:8"
+            },
+            "src": "438:104:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1568,
+              "nodeType": "Block",
+              "src": "573:65:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1562,
+                            "name": "controller",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1518,
+                            "src": "591:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IController_$2271",
+                              "typeString": "contract IController"
+                            }
+                          },
+                          "id": 1563,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "stopInEmergency",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2250,
+                          "src": "591:26:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$__$returns$_t_bool_$",
+                            "typeString": "function () view external returns (bool)"
+                          }
+                        },
+                        "id": 1564,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "591:28:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1561,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "583:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1565,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "583:37:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1566,
+                  "nodeType": "ExpressionStatement",
+                  "src": "583:37:8"
+                },
+                {
+                  "id": 1567,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "630:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1569,
+            "name": "onlyInGoodTimes",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1560,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "573:0:8"
+            },
+            "src": "548:90:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1578,
+              "nodeType": "Block",
+              "src": "668:65:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [],
+                        "expression": {
+                          "argumentTypes": [],
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1572,
+                            "name": "controller",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1518,
+                            "src": "686:10:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IController_$2271",
+                              "typeString": "contract IController"
+                            }
+                          },
+                          "id": 1573,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "onlyInEmergency",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2255,
+                          "src": "686:26:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_view$__$returns$_t_bool_$",
+                            "typeString": "function () view external returns (bool)"
+                          }
+                        },
+                        "id": 1574,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "686:28:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 1571,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        5716,
+                        5717
+                      ],
+                      "referencedDeclaration": 5716,
+                      "src": "678:7:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 1575,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "678:37:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1576,
+                  "nodeType": "ExpressionStatement",
+                  "src": "678:37:8"
+                },
+                {
+                  "id": 1577,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "725:1:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1579,
+            "name": "onlyInBadTimes",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 1570,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "668:0:8"
+            },
+            "src": "644:89:8",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1589,
+              "nodeType": "Block",
+              "src": "760:53:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1587,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1582,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1518,
+                      "src": "770:10:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 1584,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 5713,
+                            "src": "795:3:8",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 1585,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "795:10:8",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 1583,
+                        "name": "IController",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2271,
+                        "src": "783:11:8",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IController_$2271_$",
+                          "typeString": "type(contract IController)"
+                        }
+                      },
+                      "id": 1586,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "783:23:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "src": "770:36:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "id": 1588,
+                  "nodeType": "ExpressionStatement",
+                  "src": "770:36:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1590,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1580,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "750:2:8"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1581,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "760:0:8"
+            },
+            "scope": 1615,
+            "src": "739:74:8",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1597,
+              "nodeType": "Block",
+              "src": "877:34:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1595,
+                    "name": "controller",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 1518,
+                    "src": "894:10:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "functionReturnParameters": 1594,
+                  "id": 1596,
+                  "nodeType": "Return",
+                  "src": "887:17:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1598,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1591,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "841:2:8"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1594,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1593,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1598,
+                  "src": "864:11:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$2271",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 1592,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2271,
+                    "src": "864:11:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "863:13:8"
+            },
+            "scope": 1615,
+            "src": "819:92:8",
+            "stateMutability": "view",
+            "superFunction": 2220,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1613,
+              "nodeType": "Block",
+              "src": "1007:62:8",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1609,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 1607,
+                      "name": "controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1518,
+                      "src": "1017:10:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 1608,
+                      "name": "_controller",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1600,
+                      "src": "1030:11:8",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IController_$2271",
+                        "typeString": "contract IController"
+                      }
+                    },
+                    "src": "1017:24:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "id": 1610,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1017:24:8"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 1611,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "1058:4:8",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 1606,
+                  "id": 1612,
+                  "nodeType": "Return",
+                  "src": "1051:11:8"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 1614,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 1603,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 1602,
+                  "name": "onlyControllerCaller",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 1559,
+                  "src": "972:20:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "972:20:8"
+              }
+            ],
+            "name": "setController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1601,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1600,
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1614,
+                  "src": "940:23:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IController_$2271",
+                    "typeString": "contract IController"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 1599,
+                    "name": "IController",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2271,
+                    "src": "940:11:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IController_$2271",
+                      "typeString": "contract IController"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "939:25:8"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 1606,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1605,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1614,
+                  "src": "1001:4:8",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1604,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1001:4:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1000:6:8"
+            },
+            "scope": 1615,
+            "src": "917:152:8",
+            "stateMutability": "nonpayable",
+            "superFunction": 2227,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1616,
+        "src": "128:943:8"
+      }
+    ],
+    "src": "0:1072:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.22+commit.4cb486ee.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.1",
+  "updatedAt": "2019-07-22T13:06:58.177Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
