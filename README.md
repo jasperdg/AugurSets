@@ -54,7 +54,7 @@ module.exports = {
 The final step before the tests will run is to copy the contract addresses logged by the parity node into `constants.js`. 
 
 The logs should look something like this (but with different addresses):
-![a screenshot showing how the addresses should look](https://github.com/adam-p/markdown-here/raw/master/docs/assets/addresses-example.png "screenshot of addressses")
+![a screenshot showing how the addresses should look](https://github.com/jasperdg/AugurSets/blob/master/docs/assets/addresses-example.png "screenshot of addressses")
 
 ### Running the tests
 Make sure you're in the `augur-sets` directory and run:
