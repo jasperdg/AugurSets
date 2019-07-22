@@ -43,7 +43,7 @@ touch .pvt.js
 ```
 
 Open your prefered text editor and paste the following code into `.pvt.js`
-(NOTE: don't worry this not my address, this is just an account that is hardcoded and funded by our POA parity chain)
+(NOTE: this is just a generic address hardcoded in our POA parity chain to own all of the premined Ether)
 ```
 module.exports = {
 	PUB_KEY: "0x913dA4198E6bE1D5f5E4a40D0667f70C0B5430Eb",
