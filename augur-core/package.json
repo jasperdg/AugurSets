@@ -41,6 +41,7 @@
     "docker:run:npm": "docker run --rm augurproject/augur-core:latest",
     "docker:run:shell": "docker run --rm -it --entrypoint=bash augurproject/augur-core:latest",
     "docker:run:test:integration:geth": "docker-compose -f ./source/support/test/integration/docker-compose-geth.yml up --abort-on-container-exit --force-recreate",
+    "docker:run:integration:parity": "docker-compose -f ./source/support/test/integration/docker-compose-parity.yml up --force-recreate",
     "docker:run:test:integration:parity": "docker-compose -f ./source/support/test/integration/docker-compose-parity.yml up --abort-on-container-exit --force-recreate",
     "docker:run:test:unit": "npm run docker:run:npm -- run test:unit",
     "docker:run:test:unit:all": "npm run docker:run:npm -- run test:unit:all",

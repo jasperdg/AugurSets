@@ -134,6 +134,7 @@ Deploying to: ${networkConfiguration.networkName}
         if (ownerAddress.toLowerCase() !== this.accountManager.defaultAddress.toLowerCase()) {
             throw new Error("Controller owner does not equal from address");
         }
+
         return controller;
     }
 
@@ -175,6 +176,7 @@ Deploying to: ${networkConfiguration.networkName}
     private async upload(contract: Contract): Promise<void> {
         const contractsToDelegate: {[key:string]: boolean} = {"Orders": true, "TradingEscapeHatch": true, "Cash": true};
         const contractName = contract.contractName
+
         if (contractName === 'Controller') return;
         if (contractName === 'Delegator') return;
         if (contractName === 'TimeControlled') return;
